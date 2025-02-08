@@ -2,4 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="main">#fcd47c</color>
+    <color name="azul_claro">#ADD8E6</color>
+    <color name="rojo_claro">#FF6347</color>
+    <color name="light_gray">#D3D3D3</color>
+    <color name="colorAccent">#FF4081</color> <!-- Un rosa vibrante -->
+
 </resources>

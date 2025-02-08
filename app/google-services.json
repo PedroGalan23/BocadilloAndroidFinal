@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "877677668660",
+    "project_id": "bocadillofinal",
+    "storage_bucket": "bocadillofinal.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:877677668660:android:ea838f26614db6f86d5d61",
+        "android_client_info": {
+          "package_name": "com.example.bocadilloandroidfinal"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVqHCYPiqSAGzVdLXoSNF5jcBjPeTi8xo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

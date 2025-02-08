@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/fragment_cocina_casa"
+        android:icon="@drawable/ic_cocina_casa"
+        android:title="Casa"/>
+    <item
+        android:id="@+id/fragment_cocina"
+        android:icon="@drawable/ic_cocina_cocina"
+        android:title="Cocina"/>
+    <item
+        android:id="@+id/fragment_cocina_incidencia"
+        android:icon="@drawable/ic_cocina_incidencia"
+        android:title="Incidencia"/>
+</menu>

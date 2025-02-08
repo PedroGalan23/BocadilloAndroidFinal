@@ -1,20 +1,28 @@
 package com.example.bocadilloandroidfinal
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+
+import com.example.bocadilloandroidfinal._admin.AdminActivity
+import com.example.bocadilloandroidfinal._alumno.AlumnoActivity
+import com.example.bocadilloandroidfinal._cocina.CocinaActivity
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+
+        val userRole = intent.getStringExtra("USER_ROLE") ?: "alumno"
+
+        val intent = when (userRole.lowercase()) {
+            "alumno" -> Intent(this, AlumnoActivity::class.java)
+            "cocina" -> Intent(this, CocinaActivity::class.java)
+            "admin" -> Intent(this, AdminActivity::class.java)
+            else -> Intent(this, AlumnoActivity::class.java) // Default
         }
+
+        startActivity(intent)
+        finish() // Cierra MainActivity para que no pueda volver atrás
     }
 }

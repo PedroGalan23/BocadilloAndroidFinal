@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_admi"
+    app:startDestination="@id/fragment_admin_alumno">
+
+    <fragment
+        android:id="@+id/fragment_admin_alumno"
+        android:name="com.example.bocadilloandroidfinal._admin.AdminAlumnoFragment"
+        android:label="fragment_admin_alumno"
+        tools:layout="@layout/fragment_admin_alumno" />
+    <fragment
+        android:id="@+id/fragment_admin_bocadillo"
+        android:name="com.example.bocadilloandroidfinal._admin.AdminBocadilloFragment"
+        android:label="fragment_admin_bocadillo"
+        tools:layout="@layout/fragment_admin_bocadillo" />
+</navigation>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/fragment_admin_alumno"
+        android:icon="@drawable/ic_admin_alu"
+        android:title="Alumno"/>
+
+    <item
+        android:id="@+id/fragment_admin_bocadillo"
+        android:icon="@drawable/ic_bocadillo"
+        android:title="Bocadillo"/>
+</menu>

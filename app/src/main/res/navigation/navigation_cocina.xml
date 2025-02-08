@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_cocina"
+    app:startDestination="@id/fragment_cocina_casa">
+
+    <fragment
+        android:id="@+id/fragment_cocina_casa"
+        android:name="com.example.bocadilloandroidfinal._cocina.CocinaCasaFragment"
+        android:label="fragment_cocina_casa"
+        tools:layout="@layout/fragment_cocina_casa" />
+    <fragment
+        android:id="@+id/fragment_cocina"
+        android:name="com.example.bocadilloandroidfinal._cocina.CocinaFragment"
+        android:label="fragment_cocina"
+        tools:layout="@layout/fragment_cocina" />
+    <fragment
+        android:id="@+id/fragment_cocina_incidencia"
+        android:name="com.example.bocadilloandroidfinal._cocina.CocinaIncidenciaFragment"
+        android:label="fragment_cocina_incidencia"
+        tools:layout="@layout/fragment_cocina_incidencia" />
+</navigation>

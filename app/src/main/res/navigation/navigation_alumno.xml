@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_alumno"
+    app:startDestination="@id/fragment_pedido">
+
+    <fragment
+        android:id="@+id/fragment_pedido"
+        android:name="com.example.bocadilloandroidfinal._alumno.PedidoFragment"
+        android:label="fragment_pedido"
+        tools:layout="@layout/fragment_pedido" >
+        <action
+            android:id="@+id/action_fragment_pedido_to_resumenFragment"
+            app:destination="@id/resumenFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_calendario"
+        android:name="com.example.bocadilloandroidfinal._alumno.CalendarioFragment"
+        android:label="fragment_calendario"
+        tools:layout="@layout/fragment_calendario" />
+    <fragment
+        android:id="@+id/fragment_perfil"
+        android:name="com.example.bocadilloandroidfinal._alumno.PerfilFragment"
+        android:label="fragment_perfil"
+        tools:layout="@layout/fragment_perfil" />
+    <fragment
+        android:id="@+id/fragment_historial"
+        android:name="com.example.bocadilloandroidfinal._alumno.HistorialFragment"
+        android:label="fragment_historial"
+        tools:layout="@layout/fragment_historial" />
+    <fragment
+        android:id="@+id/resumenFragment"
+        android:name="com.example.bocadilloandroidfinal._alumno.ResumenPedidoFragment"
+        android:label="ResumenFragment" >
+        <action
+            android:id="@+id/action_resumenFragment_to_fragment_pedido"
+            app:destination="@id/fragment_pedido"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
+    </fragment>
+
+
+</navigation>
