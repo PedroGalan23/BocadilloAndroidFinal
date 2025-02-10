@@ -1,6 +1,7 @@
 package com.example.bocadilloandroidfinal._alumno
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -50,11 +51,12 @@ class PedidoFragment : Fragment() {
             adapter = bocadilloAdapter
         }
 
-        bocadilloViewModel.listaBocadillos.observe(viewLifecycleOwner, Observer { bocadillosList ->
+        bocadilloViewModel.fetchBocadillosDia()
+
+        bocadilloViewModel.bocadillos.observe(viewLifecycleOwner, Observer { bocadillosList ->
             bocadilloAdapter.actualizarLista(bocadillosList)
         })
-
-        bocadilloViewModel.fetchBocadillosDia()
+        Log.d("DEBUG", "RecyclerView después de asignar datos: ${bocadilloAdapter.itemCount}")
 
         //Manejar la confirmación del pedido
         binding.btnConfirmar.setOnClickListener {

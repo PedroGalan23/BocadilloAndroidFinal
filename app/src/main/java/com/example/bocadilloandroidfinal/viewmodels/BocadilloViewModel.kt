@@ -7,64 +7,51 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.bocadilloandroidfinal.api.RetrofitConnect
 import com.example.bocadilloandroidfinal.modelos.Bocadillo
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import java.text.SimpleDateFormat
-import java.util.*
 
 class BocadilloViewModel : ViewModel() {
 
-    private val _listaBocadillos = MutableLiveData<List<Bocadillo>>()
-    val listaBocadillos: LiveData<List<Bocadillo>> get() = _listaBocadillos
+    private val _bocadillos = MutableLiveData<List<Bocadillo>>()
+    val bocadillos: LiveData<List<Bocadillo>> get() = _bocadillos
 
-    fun fetchBocadillosDia() {
+    private val _errorMessage = MutableLiveData<String>()
+    val errorMessage: LiveData<String> get() = _errorMessage
+
+    /** Obtener todos los bocadillos desde la API */
+    fun fetchBocadillos() {
+        Log.d("DEBUG", "Obteniendo todos los bocadillos...")
         viewModelScope.launch {
             try {
-                Log.d("DEBUG", "Iniciando la carga de bocadillos...")
-
-                val bocadillosResponse = withContext(Dispatchers.IO) {
-                    RetrofitConnect.apiBocadillo.getBocadillos()
-                }
-
-                val alergenosResponse = withContext(Dispatchers.IO) {
-                    RetrofitConnect.apiAlergenos.getAlergenos()
-                }
-
-                Log.d("DEBUG", "Bocadillos obtenidos: ${bocadillosResponse.size}")
-                Log.d("DEBUG", "Alergenos obtenidos: ${alergenosResponse.size}")
-
-                // Crear un mapa de alérgenos con nombres
-                val alergenosMap = alergenosResponse.mapValues { it.value.nombre }
-
-                // Obtener día actual
-                val sdf = SimpleDateFormat("EEEE", Locale.getDefault())
-                val diaActual = sdf.format(Date())
-
-                // Filtrar bocadillos por día
-                val bocadillosDiaActual = bocadillosResponse.values.filter { it.dia.equals(diaActual, ignoreCase = true) }
-
-                Log.d("DEBUG", "Bocadillos disponibles para el día $diaActual: ${bocadillosDiaActual.size}")
-
-                // Seleccionar un bocadillo frío y uno caliente
-                val bocadillosFiltrados = mutableListOf<Bocadillo>()
-                val frio = bocadillosDiaActual.find { it.tipo.equals("Frio", ignoreCase = true) }
-                val caliente = bocadillosDiaActual.find { it.tipo.equals("Caliente", ignoreCase = true) }
-
-                frio?.let { bocadillosFiltrados.add(it) }
-                caliente?.let { bocadillosFiltrados.add(it) }
-
-                Log.d("DEBUG", "Bocadillos seleccionados para mostrar: ${bocadillosFiltrados.size}")
-
-                _listaBocadillos.postValue(bocadillosFiltrados)
-
+                val response = RetrofitConnect.apiBocadillo.getBocadillos()
+                _bocadillos.value = response.values.toList()
+                Log.d("DEBUG", "Bocadillos cargados: ${_bocadillos.value?.size}")
             } catch (e: Exception) {
+                _errorMessage.value = "Error al obtener bocadillos: ${e.message}"
                 Log.e("ERROR", "Error al obtener bocadillos", e)
             }
         }
     }
 
-    fun fetchBocadillos(){
+    /** Obtener bocadillos del día actual */
+    fun fetchBocadillosDia() {
+        Log.d("DEBUG", "Obteniendo bocadillos del día...")
+        viewModelScope.launch {
+            try {
+                val response = RetrofitConnect.apiBocadillo.getBocadillos()
+                val diaActual = obtenerDiaActual()
+                val bocadillosFiltrados = response.values.filter { it.dia.equals(diaActual, ignoreCase = true) }
 
+                _bocadillos.value = bocadillosFiltrados
+                Log.d("DEBUG", "Bocadillos para $diaActual: ${bocadillosFiltrados.size}")
+            } catch (e: Exception) {
+                _errorMessage.value = "Error al obtener bocadillos del día: ${e.message}"
+                Log.e("ERROR", "Error al obtener bocadillos del día", e)
+            }
+        }
+    }
+
+    /** Obtener el día de la semana en formato de texto */
+    private fun obtenerDiaActual(): String {
+        return java.text.SimpleDateFormat("EEEE", java.util.Locale.getDefault()).format(java.util.Date())
     }
 }
