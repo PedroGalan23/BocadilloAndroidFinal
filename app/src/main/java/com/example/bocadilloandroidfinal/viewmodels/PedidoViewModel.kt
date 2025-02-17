@@ -23,6 +23,38 @@ class PedidoViewModel : ViewModel() {
     val errorMensaje: LiveData<String> get() = _errorMensaje
 
     private var idPedidoActual: String? = null
+    //Parte de historial
+    private val _pedidosAlumno = MutableLiveData<List<Pedido>>()
+    val pedidosAlumno: LiveData<List<Pedido>> get() = _pedidosAlumno
+
+    private val _totalGastado = MutableLiveData<Double>()
+    val totalGastado: LiveData<Double> get() = _totalGastado
+
+    private val _totalBocadillos = MutableLiveData<Int>()
+    val totalBocadillos: LiveData<Int> get() = _totalBocadillos
+
+    fun obtenerPedidosAlumno(idUsuario: String) {
+        viewModelScope.launch {
+            try {
+                val response = RetrofitConnect.apiPedido.getPedidos()
+                val pedidosFiltrados = response?.values?.filter { it.id_usuario == idUsuario } ?: emptyList()
+
+                _pedidosAlumno.postValue(pedidosFiltrados)
+                _totalGastado.postValue(pedidosFiltrados.sumOf { it.precio })
+                _totalBocadillos.postValue(pedidosFiltrados.size)
+
+            } catch (e: Exception) {
+                _pedidosAlumno.postValue(emptyList())
+                _totalGastado.postValue(0.0)
+                _totalBocadillos.postValue(0)
+            }
+        }
+    }
+
+
+
+
+    //Parte de Pedir
 
     fun obtenerPedidoDelDia(idUsuario: String) {
         viewModelScope.launch {

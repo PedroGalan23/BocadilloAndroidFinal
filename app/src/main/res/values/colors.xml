@@ -7,5 +7,6 @@
     <color name="rojo_claro">#FF6347</color>
     <color name="light_gray">#D3D3D3</color>
     <color name="colorAccent">#FF4081</color> <!-- Un rosa vibrante -->
-
+    <color name="verde">#00a135</color> <!-- Un rosa vibrante -->
+    <color name="gris_claro">#9c9c9c</color>
 </resources>

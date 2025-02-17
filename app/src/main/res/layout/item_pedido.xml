@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="12dp"
+    android:layout_margin="10dp"
     app:cardCornerRadius="12dp"
     app:cardElevation="6dp"
     app:cardBackgroundColor="@color/white">
@@ -14,82 +14,69 @@
         android:layout_height="wrap_content"
         android:padding="16dp">
 
-        <!-- ID del Pedido -->
-        <TextView
-            android:id="@+id/tvId"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:textColor="@color/main"
-            tools:text="ID: 12345"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <!-- Nombre del Bocadillo -->
         <TextView
             android:id="@+id/tvNombreBocadillo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textStyle="bold"
             android:fontFamily="@font/poppins_medium"
             android:textColor="@color/black"
-            tools:text="Bocadillo de Jamón"
+            android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvId"
-            app:layout_constraintEnd_toStartOf="@id/tvFecha" />
+            app:layout_constraintEnd_toStartOf="@id/tvFecha"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            tools:text="Bocadillo de Jamón" />
 
         <!-- Fecha del Pedido -->
         <TextView
             android:id="@+id/tvFecha"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/colorAccent"
             android:textSize="14sp"
             android:textStyle="bold"
-            android:textColor="@color/colorAccent"
-            tools:text="12/02/2025 - 12:30 PM"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="12/02/2025 - 12:30 PM" />
 
-        <!-- Estado del Pedido (Retirado o No) -->
+        <!-- Estado del Pedido -->
         <TextView
             android:id="@+id/tvEstado"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@color/rojo_claro"
-            tools:text="No Retirado"
             android:gravity="center"
+            android:textColor="@color/rojo_claro"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/tvNombreBocadillo"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvNombreBocadillo"
-            app:layout_constraintBottom_toTopOf="@id/tvCoste"
-            app:layout_constraintHorizontal_bias="0.5" />
+            tools:text="No Retirado" />
 
-        <!-- Icono Precio -->
+        <!-- Icono de Precio -->
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginEnd="8dp"
-            app:tint="@color/main"
-            tools:srcCompat="@drawable/ic_precio"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="5dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvEstado" />
+            app:layout_constraintTop_toBottomOf="@id/tvEstado"
+            tools:srcCompat="@drawable/ic_precio" />
 
         <!-- Coste del Pedido -->
         <TextView
             android:id="@+id/tvCoste"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="22sp"
-            android:textStyle="bold"
+            android:padding="5dp"
             android:textColor="@color/black"
-            tools:text="4.50€"
+            android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@id/imageView"
-            app:layout_constraintTop_toBottomOf="@id/tvEstado" />
+            app:layout_constraintTop_toBottomOf="@id/tvEstado"
+            tools:text="4.50€" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
