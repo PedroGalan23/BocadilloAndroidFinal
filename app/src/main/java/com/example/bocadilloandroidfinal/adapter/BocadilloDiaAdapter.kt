@@ -38,7 +38,7 @@ class BocadilloDiaAdapter(
 
         fun bind(bocadillo: Bocadillo, position: Int) {
             println("DEBUG: Mostrando bocadillo -> ${bocadillo.nombre}") // 👀 Ver en Logcat
-
+            bocadillo.alergenos
             binding.tvNombreBocadillo.text = bocadillo.nombre
             binding.tvDescripcion.text = bocadillo.descripcion
             binding.tvAlergenos.text = "Alergenos: ${bocadillo.nombresAlergenos?.joinToString(", ") ?: "Ninguno"}"

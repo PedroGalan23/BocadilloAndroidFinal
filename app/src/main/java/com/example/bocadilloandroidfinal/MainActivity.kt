@@ -26,3 +26,4 @@ class MainActivity : AppCompatActivity() {
         finish() // Cierra MainActivity para que no pueda volver atrás
     }
 }
+

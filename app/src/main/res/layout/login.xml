@@ -88,21 +88,6 @@
                     android:padding="12dp"
                     android:paddingStart="45dp" />
             </com.google.android.material.textfield.TextInputLayout>
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/lg_Rol"
-                android:layout_marginTop="16dp"
-                app:startIconDrawable="@drawable/ic_persona">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etRol"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textEmailAddress"
-                    android:padding="12dp"
-                    android:paddingStart="45dp" />
-            </com.google.android.material.textfield.TextInputLayout>
 
             <Button
                 android:id="@+id/btnLogin"

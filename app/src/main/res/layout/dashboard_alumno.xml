@@ -8,6 +8,20 @@
     android:orientation="vertical"
     android:gravity="center">
 
+    <!-- Mensaje de bienvenida -->
+    <TextView
+        android:id="@+id/tv_welcome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:padding="16dp"
+        android:fontFamily="sans-serif-medium"
+        android:textStyle="bold"
+        android:background="@android:color/transparent"
+        tools:text="pedro" />
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"

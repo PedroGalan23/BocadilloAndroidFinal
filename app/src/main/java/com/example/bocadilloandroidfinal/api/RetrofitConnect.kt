@@ -20,4 +20,18 @@ object RetrofitConnect{
             .build()
             .create(ApiServiceAlergeno::class.java)
     }
+    val apiUsuario: ApiServiceUsuario by lazy {
+        Retrofit.Builder()
+            .baseUrl(URL_BASE)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(ApiServiceUsuario::class.java)
+    }
+    val apiPedido: ApiServicePedido by lazy {
+        Retrofit.Builder()
+            .baseUrl(URL_BASE)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(ApiServicePedido::class.java)
+    }
 }
