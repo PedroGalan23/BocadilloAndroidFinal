@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/main"
-    tools:context=".ui.LoginActivity">
+    tools:context=".LoginActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -46,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat_bold"
                 android:gravity="center"
-                android:letterSpacing="0.05"
+                android:letterSpacing="0"
                 android:lineSpacingExtra="8dp"
                 android:padding="16dp"
                 android:shadowColor="#976134"
@@ -94,8 +94,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:backgroundTint="#e8944f"
+                android:backgroundTint="@color/marroncete"
                 android:text="@string/lg_IniciarSesion"
+                android:textStyle="bold"
+                android:fontFamily="@font/montserrat_bold"
                 android:textColor="@android:color/white" />
 
             <com.google.android.material.button.MaterialButton
@@ -107,6 +109,7 @@
                 android:text="@string/lg_google"
                 android:textColor="@android:color/white"
                 app:icon="@drawable/google"
+                android:fontFamily="@font/montserrat_bold"
                 app:iconGravity="end"
                 app:iconPadding="0dp" />
         </LinearLayout>

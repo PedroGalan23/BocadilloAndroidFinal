@@ -51,7 +51,7 @@ class FragmentEditarUsuario : Fragment() {
         }
 
         // Botón para guardar cambios
-        binding.btnGuardar.setOnClickListener {
+        binding.btnAgregar.setOnClickListener {
             val nuevoLogin = binding.edtLogin.text.toString().trim()
             val nuevoNombre = binding.edtNombre.text.toString().trim()
             val nuevosApellidos = binding.edtApellidos.text.toString().trim()

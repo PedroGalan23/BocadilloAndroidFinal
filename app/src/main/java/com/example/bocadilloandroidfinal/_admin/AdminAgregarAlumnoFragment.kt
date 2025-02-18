@@ -37,7 +37,7 @@ class AdminAgregarAlumnoFragment : Fragment() {
             findNavController().navigate(R.id.action_adminAgregarAlumnoFragment_to_fragment_admin_alumno)
 
         }
-        binding.btnGuardar.setOnClickListener {
+        binding.btnAgregar.setOnClickListener {
             guardarAlumno()
         }
 

@@ -42,8 +42,8 @@ class AdminAlumnoFragment : Fragment() {
         binding.recyclerViewAlumnos.layoutManager = LinearLayoutManager(requireContext())
         usuarioAdapter = UsuarioAdapter(
             lista_usuarios = emptyList(),
-            onEditarClick = { usuario -> irAEditarUsuario(usuario) }, // 🔥 Editar usuario
-            onEliminarClick = { usuario -> eliminarUsuario(usuario) }  // 🔥 Eliminar usuario
+            onEditarClick = { usuario -> irAEditarUsuario(usuario) }, //  Editar usuario
+            onEliminarClick = { usuario -> eliminarUsuario(usuario) }  // Eliminar usuario
         )
         binding.recyclerViewAlumnos.adapter = usuarioAdapter
 

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="6dp"
+    app:strokeWidth="2dp"
+    app:strokeColor="@color/marroncete"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <!-- Imagen del bocadillo -->
+        <ImageView
+            android:id="@+id/imgBocadillo"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"
+
+            tools:src="@tools:sample/backgrounds/scenic" />
+
+        <!-- Información del bocadillo -->
+        <TextView
+            android:id="@+id/txtNombreBocadillo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            tools:text="Bocadillo de Jamón" />
+
+        <TextView
+            android:id="@+id/txtDescripcion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textSize="14sp"
+            android:textColor="@android:color/darker_gray"
+            tools:text="Jamón serrano con tomate y aceite de oliva." />
+
+        <TextView
+            android:id="@+id/txtDia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@color/marroncete"
+            tools:text="Disponible el: Lunes" />
+
+        <TextView
+            android:id="@+id/txtTipo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@color/marroncete"
+            tools:text="Tipo: Caliente" />
+
+        <TextView
+            android:id="@+id/txtAlergenos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textSize="12sp"
+            android:textColor="@android:color/holo_red_dark"
+            tools:text="Alérgenos: Gluten, Lactosa" />
+
+        <TextView
+            android:id="@+id/txtCoste"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            tools:text="Precio: 2.50€" />
+
+        <!-- Contenedor de botones -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end"
+            android:paddingTop="8dp">
+
+
+            <ImageView
+                android:id="@+id/btnEditarAlumno"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:clickable="true"
+                android:contentDescription="Editar"
+                android:focusable="true"
+                android:padding="4dp"
+                android:src="@drawable/ic_editar_alumno" />
+
+            <ImageView
+                android:id="@+id/btnEliminarAlumno"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_borrar_alumno"
+                android:contentDescription="Eliminar"
+                android:padding="4dp"
+                android:clickable="true"
+                android:focusable="true" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

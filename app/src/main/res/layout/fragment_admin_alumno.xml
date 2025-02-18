@@ -11,14 +11,15 @@
         android:id="@+id/tvListadoAlumnos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:gravity="center"
         android:text="Listado de Alumnos"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:layout_margin="16dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:gravity="center"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewAlumnos"
@@ -36,8 +37,11 @@
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:contentDescription="Agregar Alumno"
-        android:src="@drawable/ic_add"
+        android:src="@drawable/ic_usuario"
+        app:backgroundTint="@color/marroncete"
+        app:tint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

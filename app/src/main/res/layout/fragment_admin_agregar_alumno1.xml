@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/main_crear"
+    android:background="@color/main"
     android:fillViewport="true">
 
     <LinearLayout
@@ -18,13 +18,15 @@
             android:id="@+id/btnVolver"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:elevation="6dp"
             android:text="Volver"
-            android:icon="@drawable/ic_volver"
-            android:textColor="@color/main"
+            android:textColor="@color/white"
+            app:backgroundTint="@color/marroncete"
             app:cornerRadius="16dp"
-            android:elevation="4dp"
-            android:backgroundTint="@color/white"
-            android:layout_marginBottom="16dp"/>
+            app:icon="@drawable/ic_volver"
+            app:iconTint="@color/white" />
+
 
         <!-- Card de Información -->
         <androidx.cardview.widget.CardView
@@ -47,10 +49,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:fontFamily="@font/montserrat_bold"
                     android:paddingBottom="16dp"
                     android:text="Editar Alumno"
-                    android:textColor="@color/main"
-                    android:textSize="24sp"
+                    android:textColor="@color/marroncete"
+                    android:textSize="28sp"
                     android:textStyle="bold" />
 
                 <!-- Campos de Entrada -->
@@ -152,14 +155,18 @@
 
         <!-- Botón Guardar -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnGuardar"
-            android:layout_width="match_parent"
+            android:id="@+id/btnAgregar"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_gravity="end"
+            android:layout_margin="20dp"
+            android:layout_marginTop="15dp"
             android:elevation="6dp"
-            android:paddingBottom="10dp"
-            android:text="Guardar Cambios"
+            android:text="Agregar Alumno"
             android:textColor="@color/white"
-            app:cornerRadius="16dp" />
+            app:backgroundTint="@color/marroncete"
+            app:cornerRadius="16dp"
+            app:icon="@drawable/ic_add"
+            app:iconTint="@color/white" />
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

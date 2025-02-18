@@ -4,6 +4,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="main">#fcd47c</color>
     <color name="azul_claro">#ADD8E6</color>
+    <color name="marroncete">#b9770e</color>
     <color name="rojo_claro">#FF6347</color>
     <color name="light_gray">#D3D3D3</color>
     <color name="colorAccent">#FF4081</color> <!-- Un rosa vibrante -->
@@ -12,4 +13,9 @@
     <color name="teal_700">#00796B</color>
     <color name="teal_200">#80CBC4</color>
     <color name="main_crear">#85c1e9</color>
+    <color name="verde_claro">#58d68d</color> <!-- Un rosa vibrante -->
+    <color name="secondaryColor">#8c5a0a</color> <!-- Marrón más oscuro -->
+    <color name="secondaryLight">#e8b76a</color> <!-- Marrón más claro -->
+
+
 </resources>
