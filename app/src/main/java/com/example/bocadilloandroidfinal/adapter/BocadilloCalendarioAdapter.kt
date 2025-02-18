@@ -9,7 +9,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bocadilloandroidfinal.R
 import com.example.bocadilloandroidfinal.modelos.Bocadillo
-import kotlin.coroutines.coroutineContext
 
 class BocadilloCalendarioAdapter(
     private var bocadillos: List<Bocadillo>
@@ -54,7 +53,7 @@ class BocadilloCalendarioAdapter(
     }
 
     class BocadilloViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val txtNombre: TextView = view.findViewById(R.id.txtNombre)
+        val txtNombre: TextView = view.findViewById(R.id.txtNombreAlumno)
         val txtDescripcion: TextView = view.findViewById(R.id.txtDescripcion)
         val txtAlergenos: TextView = view.findViewById(R.id.txtAlergenos)
         val txtCoste: TextView = view.findViewById(R.id.txtCoste)

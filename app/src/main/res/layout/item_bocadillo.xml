@@ -43,7 +43,7 @@
             tools:text="Tipo: Caliente" />
 
         <TextView
-            android:id="@+id/txtNombre"
+            android:id="@+id/txtNombreAlumno"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"

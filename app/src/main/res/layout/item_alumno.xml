@@ -15,7 +15,7 @@
 
         <!-- Información del usuario -->
         <TextView
-            android:id="@+id/txtNombre"
+            android:id="@+id/txtNombreAlumno"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nombre"
@@ -23,7 +23,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/txtEmail"
+            android:id="@+id/txtEmailAlumno"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Email"
@@ -48,7 +48,7 @@
             android:paddingTop="8dp">
 
             <ImageView
-                android:id="@+id/btnEditar"
+                android:id="@+id/btnEditarAlumno"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
@@ -59,7 +59,7 @@
                 android:src="@drawable/ic_editar_alumno" />
 
             <ImageView
-                android:id="@+id/btnEliminar"
+                android:id="@+id/btnEliminarAlumno"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_borrar_alumno"

@@ -56,7 +56,7 @@ class PerfilFragment : Fragment() {
             val nuevosApellidos = binding.etApellidos.text.toString().trim()
             val nuevoCurso = binding.etCurso.text.toString().trim()
 
-            usuarioViewModel.updateUsuario(
+            usuarioViewModel.updateUsuarioPerfil(
                 nombre = nuevoNombre,
                 apellidos = nuevosApellidos,
                 curso = nuevoCurso

@@ -1,4 +1,7 @@
 [versions]
+androidGradlePlugin = "8.6.0"
+navigation = "2.7.4"
+googleServices = "4.4.2"  # 🔥 Versión correcta de Google Services
 agp = "8.6.0"
 kotlin = "1.9.0"
 coreKtx = "1.15.0"
@@ -9,8 +12,8 @@ appcompat = "1.7.0"
 material = "1.12.0"
 activity = "1.10.0"
 constraintlayout = "2.2.0"
-navigationFragmentKtx = "2.8.6"
-navigationUiKtx = "2.8.6"
+navigationFragmentKtx = "2.7.4"
+navigationUiKtx = "2.7.4"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -27,4 +30,6 @@ androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-
+androidx-navigation-safe-args = { id = "androidx.navigation.safeargs.kotlin", version.ref = "navigation" }
+safe-args = { id = "androidx.navigation.safeargs", version.ref = "navigation" }
+google-services = { id = "com.google.gms.google-services", version.ref = "googleServices" } # ✅ Correcto

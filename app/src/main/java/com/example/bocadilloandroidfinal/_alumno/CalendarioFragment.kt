@@ -64,7 +64,7 @@ class CalendarioFragment : Fragment() {
             }
         }
 
-        // 👇 AHORA se llama a fetchBocadillos(), asegurando que el observe ya está listo
+        // AHORA se llama a fetchBocadillos(), asegurando que el observe ya está listo
         Log.d("DEBUG", "fetchBocadillos() ejecutado")
     }
 
