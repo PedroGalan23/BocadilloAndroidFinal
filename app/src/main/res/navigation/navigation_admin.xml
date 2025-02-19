@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/navigation_admi"
+    android:id="@+id/navigation_admin"
     app:startDestination="@id/fragment_admin_alumno">
 
     <fragment
@@ -28,6 +28,7 @@
         <action
             android:id="@+id/action_fragment_admin_bocadillo_to_adminEditarBocadilloFragment"
             app:destination="@id/adminEditarBocadilloFragment" />
+
     </fragment>
 
     <fragment
@@ -61,7 +62,7 @@
     </fragment>
     <fragment
         android:id="@+id/adminEditarBocadilloFragment"
-        android:name="com.example.bocadilloandroidfinal.ui.AdminEditarBocadilloFragment"
+        android:name="com.example.bocadilloandroidfinal._admin.AdminEditarBocadilloFragment"
         android:label="AdminEditarBocadilloFragment" >
         <argument
             android:name="bocadillo"
@@ -70,5 +71,7 @@
         <action
             android:id="@+id/action_adminEditarBocadilloFragment_to_fragment_admin_bocadillo"
             app:destination="@id/fragment_admin_bocadillo" />
+
     </fragment>
+
 </navigation>

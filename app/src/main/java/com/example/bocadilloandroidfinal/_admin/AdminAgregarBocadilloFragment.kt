@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.CheckBox
-import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -16,10 +16,10 @@ import com.example.bocadilloandroidfinal.modelos.Bocadillo
 import com.example.bocadilloandroidfinal.viewmodels.BocadilloViewModel
 
 class AdminAgregarBocadilloFragment : Fragment() {
+
     private lateinit var binding: FragmentAdminAgregarBocadilloBinding
     private val bocadilloViewModel: BocadilloViewModel by viewModels()
 
-    // Map con los alérgenos y sus IDs correspondientes
     private val alergenosDisponibles = mapOf(
         "-OIXyGEpWE3eNaVReeum" to "Gluten",
         "-OIXyI8q_DQ00NepPj3Z" to "Huevo",
@@ -41,54 +41,50 @@ class AdminAgregarBocadilloFragment : Fragment() {
         configurarSpinners()
         configurarAlergenos()
 
-        binding.btnVolver.setOnClickListener {
-            findNavController().navigate(R.id.action_adminAgregarBocadilloFragment_to_fragment_admin_bocadillo)
-        }
-
         binding.btnAgregar.setOnClickListener {
             guardarBocadillo()
         }
+
+        binding.btnVolver.setOnClickListener {
+            findNavController().navigate(R.id.action_adminAgregarBocadilloFragment_to_fragment_admin_bocadillo)
+        }
     }
 
-    /** Configura el Spinner de tipos de bocadillos */
     private fun configurarSpinners() {
         val tiposBocadillo = listOf("Frío", "Caliente")
-        val adapter = android.widget.ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, tiposBocadillo)
+        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, tiposBocadillo)
         binding.spinnerTipo.adapter = adapter
     }
 
-    /** Configura los CheckBoxes para la selección múltiple de alérgenos con sus respectivos IDs */
     private fun configurarAlergenos() {
         for ((id, nombre) in alergenosDisponibles) {
             val checkBox = CheckBox(requireContext()).apply {
                 text = nombre
-                tag = id // Guardamos el ID en el tag del CheckBox
+                tag = id
             }
             binding.layoutAlergenos.addView(checkBox)
         }
     }
 
-    /** Obtiene los alérgenos seleccionados devolviendo un Map con ID como clave y nombre como valor */
     private fun obtenerAlergenosSeleccionados(): Map<String, String> {
         val alergenosSeleccionados = mutableMapOf<String, String>()
         for (i in 0 until binding.layoutAlergenos.childCount) {
             val checkBox = binding.layoutAlergenos.getChildAt(i) as CheckBox
             if (checkBox.isChecked) {
-                val id = checkBox.tag as String // Obtenemos el ID almacenado en el tag
+                val id = checkBox.tag as String
                 alergenosSeleccionados[id] = checkBox.text.toString()
             }
         }
         return alergenosSeleccionados
     }
 
-    /** Guarda el bocadillo en Firebase */
     private fun guardarBocadillo() {
-        val nombreBocadillo = binding.edtNombreBocadillo.text.toString().trim()
-        val descripcionBocadillo = binding.edtDescripcion.text.toString().trim()
-        val tipoBocadillo = binding.spinnerTipo.selectedItem.toString()
-
+        val nombre = binding.edtNombreBocadillo.text.toString().trim()
+        val descripcion = binding.edtDescripcion.text.toString().trim()
+        val tipo = binding.spinnerTipo.selectedItem.toString()
         val costeStr = binding.edtCoste.text.toString().trim()
-        if (costeStr.isEmpty()) {
+
+        if (nombre.isEmpty() || descripcion.isEmpty() || costeStr.isEmpty()) {
             Toast.makeText(requireContext(), "Todos los campos son obligatorios", Toast.LENGTH_SHORT).show()
             return
         }
@@ -100,11 +96,10 @@ class AdminAgregarBocadilloFragment : Fragment() {
         }
 
         val alergenos = obtenerAlergenosSeleccionados()
-
         val nuevoBocadillo = Bocadillo(
-            nombre = nombreBocadillo,
-            descripcion = descripcionBocadillo,
-            tipo = tipoBocadillo,
+            nombre = nombre,
+            descripcion = descripcion,
+            tipo = tipo,
             coste = coste,
             icono = "",
             dia = "",
@@ -119,5 +114,10 @@ class AdminAgregarBocadilloFragment : Fragment() {
                 Toast.makeText(requireContext(), "Error al guardar el bocadillo", Toast.LENGTH_SHORT).show()
             }
         }
+        binding.btnVolver.setOnClickListener {
+            findNavController().navigate(R.id.action_adminAgregarBocadilloFragment_to_fragment_admin_bocadillo)
+        }
+
     }
+
 }

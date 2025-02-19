@@ -22,8 +22,8 @@ class FragmentEditarUsuario : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentAdminEditarUsuarioBinding.inflate(inflater, container, false)
-        return binding.root
+            binding = FragmentAdminEditarUsuarioBinding.inflate(inflater, container, false)
+            return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -78,7 +78,7 @@ class FragmentEditarUsuario : Fragment() {
             usuarioViewModel.updateUsuario(usuarioActualizado) { exito ->
                 if (exito) {
                     Toast.makeText(requireContext(), "Usuario actualizado", Toast.LENGTH_SHORT).show()
-                    findNavController().navigateUp() // 🔙 Volver atrás
+                    findNavController().navigateUp() // Volver atrás
                 } else {
                     Toast.makeText(requireContext(), "Error al actualizar usuario", Toast.LENGTH_SHORT).show()
                 }

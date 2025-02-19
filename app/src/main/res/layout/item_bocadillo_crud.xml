@@ -99,13 +99,13 @@
             android:id="@+id/txtCosteCrud"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@android:color/black"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:textColor="@android:color/black"
             app:layout_constraintStart_toStartOf="@id/txtAlergenosCrud"
             app:layout_constraintTop_toBottomOf="@id/txtAlergenosCrud"
-            android:layout_marginTop="4dp"
-            tools:text="Precio: 2.50€"/>
+            tools:text="Precio: 2.50€" />
 
         <!-- Botón Editar (Tamaño accesible) -->
         <ImageView
@@ -133,6 +133,16 @@
             android:src="@drawable/ic_borrar_alumno"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnEditarBocadiloCrud" />
+
+        <TextView
+            android:id="@+id/tvIdBocadilloCrud"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="ID-MISMUERTOS"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtCosteCrud" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

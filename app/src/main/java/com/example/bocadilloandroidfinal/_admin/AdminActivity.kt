@@ -21,6 +21,7 @@ class AdminActivity : AppCompatActivity() {
 
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_admin) as NavHostFragment
         val navController = navHostFragment.navController
+        navController.navInflater.inflate(R.navigation.navigation_admin)
 
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationViewAdmin)
         bottomNavigationView.setupWithNavController(navController)

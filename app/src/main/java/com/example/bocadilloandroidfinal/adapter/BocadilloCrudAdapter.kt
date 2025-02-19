@@ -48,6 +48,16 @@ class BocadilloCrudAdapter (
         holder.txtAlergenos.text = "Alergenos: ${bocadillo.nombresAlergenos?.joinToString(", ") ?: "Ninguno"}"
         holder.txtCoste.text = "Coste: ${bocadillo.coste}€"
         holder.txtTipo.text = "Tipo: ${bocadillo.tipo}"
+        holder.tvID.text=bocadillo.id
+
+
+        holder.imgEdit.setOnClickListener {
+            onEditarClick(bocadillo)
+        }
+
+        holder.imgDelete.setOnClickListener {
+            onEliminarClick(bocadillo)
+        }
 
 
         // holder.imgEdit.setOnClickListener { onEditarClick(bocadillo) }
@@ -69,6 +79,7 @@ class BocadilloCrudAdapter (
         val txtTipo: TextView = view.findViewById(R.id.txtTipoCrud) // 🔥 SE AGREGÓ ESTE CAMPO
         val imgEdit: ImageView = view.findViewById(R.id.btnEditarBocadiloCrud)
         val imgDelete: ImageView = view.findViewById(R.id.btnEliminarBocadiloCrud)
+        val tvID:TextView=view.findViewById(R.id.tvIdBocadilloCrud)
     }
 
 }

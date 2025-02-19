@@ -38,7 +38,7 @@ class AdminBocadilloFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        bocadilloViewModel.fetchBocadillos()
+        bocadilloViewModel.fetchBocadillosCrud()
 
         //  Usar binding.recyclerViewAlumnos en lugar de findViewById
         binding.recyclerViewBocadillos.layoutManager = LinearLayoutManager(requireContext())
@@ -50,9 +50,9 @@ class AdminBocadilloFragment : Fragment() {
         binding.recyclerViewBocadillos.adapter = bocadilloAdapter
 
 
-        bocadilloViewModel.bocadillos.observe(viewLifecycleOwner) { usuarios ->
-            if (!usuarios.isNullOrEmpty()) {
-                bocadilloAdapter.actualizarLista(usuarios)
+        bocadilloViewModel.bocadillosCrud.observe(viewLifecycleOwner) { bocadillos ->
+            if (!bocadillos.isNullOrEmpty()) {
+                bocadilloAdapter.actualizarLista(bocadillos)
             } else {
                 Toast.makeText(requireContext(), "No hay datos", Toast.LENGTH_SHORT).show()
             }
@@ -77,13 +77,16 @@ class AdminBocadilloFragment : Fragment() {
             .actionFragmentAdminBocadilloToAdminEditarBocadilloFragment(bocadillo)
         findNavController().navigate(action)
     }
+
     private fun eliminarBocadillo(bocadillo: Bocadillo) {
-        bocadilloViewModel.eliminarBocadillo(bocadillo.id) { exito ->
-            if (exito) {
-                Toast.makeText(requireContext(), "Bocadillo eliminado", Toast.LENGTH_SHORT).show()
-                bocadilloViewModel.fetchBocadillos() // 🔄 Refrescar lista
-            } else {
-                Toast.makeText(requireContext(), "Error al eliminar bocadillo", Toast.LENGTH_SHORT).show()
+        bocadillo.id?.let {
+            bocadilloViewModel.eliminarBocadillo(it) { exito ->
+                if (exito) {
+                    Toast.makeText(requireContext(), "Bocadillo eliminado", Toast.LENGTH_SHORT).show()
+                    bocadilloViewModel.fetchBocadillosCrud() // 🔄 Refrescar lista
+                } else {
+                    Toast.makeText(requireContext(), "Error al eliminar bocadillo", Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }

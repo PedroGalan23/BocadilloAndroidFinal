@@ -15,8 +15,8 @@ class BocadilloViewModel : ViewModel() {
     private val _bocadillos = MutableLiveData<List<Bocadillo>>()
     val bocadillos: LiveData<List<Bocadillo>> get() = _bocadillos
 
-    private val _bocadillosCrud = MutableLiveData<List<Pair<String, Bocadillo>>>()
-    val bocadillosCrud: LiveData<List<Pair<String, Bocadillo>>> get() = _bocadillosCrud
+    private val _bocadillosCrud = MutableLiveData<List<Bocadillo>>()
+    val bocadillosCrud: LiveData<List<Bocadillo>> get() = _bocadillosCrud
 
     private val _errorMessage = MutableLiveData<String>()
     val errorMessage: LiveData<String> get() = _errorMessage
@@ -88,6 +88,25 @@ class BocadilloViewModel : ViewModel() {
         }
     }
 
+    fun fetchBocadillosCrud() {
+        Log.d("DEBUG", "Obteniendo todos los bocadillos para CRUD...")
+        viewModelScope.launch {
+            try {
+                val response = RetrofitConnect.apiBocadillo.getBocadillos()
+                val listaBocadillosCrud = response.map { (id, bocadillo) ->
+                    bocadillo.copy(id = id) // Asigna el ID sin modificar la estructura original
+                }
+
+                _bocadillosCrud.value = listaBocadillosCrud
+                Log.d("DEBUG", "Bocadillos CRUD cargados: ${listaBocadillosCrud.size}")
+            } catch (e: Exception) {
+                _errorMessage.value = "Error al obtener bocadillos CRUD: ${e.message}"
+                Log.e("ERROR", "Error al obtener bocadillos CRUD", e)
+            }
+        }
+    }
+
+
     fun eliminarBocadillo(id: String, onResult: (Boolean) -> Unit) {
         viewModelScope.launch {
             try {
@@ -99,16 +118,7 @@ class BocadilloViewModel : ViewModel() {
         }
     }
 
-    fun fetchBocadillosCrud() {
-        viewModelScope.launch {
-            try {
-                val response = RetrofitConnect.apiBocadillo.getBocadillos()
-                _bocadillosCrud.value = response.map { Pair(it.key, it.value) }
-            } catch (e: Exception) {
-                _errorMessage.value = "Error al obtener bocadillos: ${e.message}"
-            }
-        }
-    }
+
 }
 
 
