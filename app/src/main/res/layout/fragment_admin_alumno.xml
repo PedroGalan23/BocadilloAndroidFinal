@@ -5,7 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/main"
+    >
 
     <TextView
         android:id="@+id/tvListadoAlumnos"
@@ -16,6 +18,7 @@
         android:gravity="center"
         android:text="Listado de Alumnos"
         android:textSize="20sp"
+        android:textColor="@color/marroncete"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,7 +41,7 @@
         android:layout_margin="20dp"
         android:contentDescription="Agregar Alumno"
         android:src="@drawable/ic_usuario"
-        app:backgroundTint="@color/marroncete"
+        app:backgroundTint="@color/white"
         app:tint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

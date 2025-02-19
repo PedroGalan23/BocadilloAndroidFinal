@@ -60,7 +60,7 @@ class AdminAlumnoFragment : Fragment() {
         }
 
         binding.fabAgregar.setOnClickListener {
-            findNavController().navigate(R.id.action_fragment_admin_alumno_to_adminAgregarAlumnoFragment)
+            findNavController().navigate(R.id.action_fragment_admin_alumno_to_adminAgregarUsuarioFragment)
         }
     }
 

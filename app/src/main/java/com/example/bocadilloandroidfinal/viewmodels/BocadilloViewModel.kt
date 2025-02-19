@@ -7,12 +7,16 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.bocadilloandroidfinal.api.RetrofitConnect
 import com.example.bocadilloandroidfinal.modelos.Bocadillo
+import com.example.bocadilloandroidfinal.modelos.Usuario
 import kotlinx.coroutines.launch
 
 class BocadilloViewModel : ViewModel() {
 
     private val _bocadillos = MutableLiveData<List<Bocadillo>>()
     val bocadillos: LiveData<List<Bocadillo>> get() = _bocadillos
+
+    private val _bocadillosCrud = MutableLiveData<List<Pair<String, Bocadillo>>>()
+    val bocadillosCrud: LiveData<List<Pair<String, Bocadillo>>> get() = _bocadillosCrud
 
     private val _errorMessage = MutableLiveData<String>()
     val errorMessage: LiveData<String> get() = _errorMessage
@@ -54,4 +58,57 @@ class BocadilloViewModel : ViewModel() {
     private fun obtenerDiaActual(): String {
         return java.text.SimpleDateFormat("EEEE", java.util.Locale.getDefault()).format(java.util.Date())
     }
+
+    /*Metodo para crear un bocadillo*/
+    fun insertarBocadillo(bocadillo: Bocadillo, onResult: (Boolean)->Unit){
+        Log.d("DEBUG", "Entrando en fetchUsuarios")
+        viewModelScope.launch {
+            try {
+                val response = RetrofitConnect.apiBocadillo.createBocadillo(bocadillo) //Decimos que id es null para que no lo cree
+
+                if (response.isSuccessful) {
+                    onResult(true) //Insercción realizada con exito
+                }else {
+                    onResult(false) //Error al insertar
+                }
+            } catch (e: Exception) {
+                _errorMessage.postValue("Error: ${e.message}")
+                onResult(false)
+            }
+        }
+    }
+    fun actualizarBocadillo(id: String, bocadillo: Bocadillo, onResult: (Boolean) -> Unit) {
+        viewModelScope.launch {
+            try {
+                val response = RetrofitConnect.apiBocadillo.updateBocadillo(id, bocadillo)
+                onResult(response.isSuccessful)
+            } catch (e: Exception) {
+                onResult(false)
+            }
+        }
+    }
+
+    fun eliminarBocadillo(id: String, onResult: (Boolean) -> Unit) {
+        viewModelScope.launch {
+            try {
+                val response = RetrofitConnect.apiBocadillo.deleteBocadillo(id)
+                onResult(response.isSuccessful)
+            } catch (e: Exception) {
+                onResult(false)
+            }
+        }
+    }
+
+    fun fetchBocadillosCrud() {
+        viewModelScope.launch {
+            try {
+                val response = RetrofitConnect.apiBocadillo.getBocadillos()
+                _bocadillosCrud.value = response.map { Pair(it.key, it.value) }
+            } catch (e: Exception) {
+                _errorMessage.value = "Error al obtener bocadillos: ${e.message}"
+            }
+        }
+    }
 }
+
+

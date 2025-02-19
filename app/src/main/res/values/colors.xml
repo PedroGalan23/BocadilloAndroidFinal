@@ -16,6 +16,7 @@
     <color name="verde_claro">#58d68d</color> <!-- Un rosa vibrante -->
     <color name="secondaryColor">#8c5a0a</color> <!-- Marrón más oscuro -->
     <color name="secondaryLight">#e8b76a</color> <!-- Marrón más claro -->
+    <color name="blue_grey">#979a9a</color>
 
 
 </resources>

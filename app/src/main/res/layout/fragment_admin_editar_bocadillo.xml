@@ -27,7 +27,6 @@
             app:icon="@drawable/ic_volver"
             app:iconTint="@color/white" />
 
-
         <!-- Card de Información -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -45,13 +44,13 @@
 
                 <!-- Título -->
                 <TextView
-                    android:id="@+id/txtTitulo"
+                    android:id="@+id/txtTituloBocadilloCrud"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:fontFamily="@font/montserrat_bold"
                     android:paddingBottom="16dp"
-                    android:text="Añadir Alumno"
+                    android:text="Editar Bocadillo"
                     android:textColor="@color/marroncete"
                     android:textSize="28sp"
                     android:textStyle="bold" />
@@ -63,20 +62,7 @@
                     android:layout_height="wrap_content">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edtLogin"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Usuario (Login)"
-                        android:inputType="text" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/CustomTextInputLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edtNombre"
+                        android:id="@+id/edtNombreBocadilloCrud"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Nombre"
@@ -89,10 +75,10 @@
                     android:layout_height="wrap_content">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edtApellidos"
+                        android:id="@+id/edtDescripcionBocadilloCrud"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Apellidos"
+                        android:hint="Descripción"
                         android:inputType="text" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -102,71 +88,74 @@
                     android:layout_height="wrap_content">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edtCorreo"
+                        android:id="@+id/edtCosteBocadilloCrud"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Correo Electrónico"
-                        android:inputType="textEmailAddress" />
+                        android:hint="Coste"
+                        android:inputType="numberDecimal" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/CustomTextInputLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edtPassword"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Contraseña"
-                        android:inputType="textPassword" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/CustomTextInputLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edtCurso"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Curso"
-                        android:inputType="text" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <!-- Spinner de Rol -->
+                <!-- Spinner Tipo de Bocadillo -->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:text="Seleccionar Rol"
+                    android:text="Tipo de Bocadillo"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <Spinner
-                    android:id="@+id/spinnerRol"
+                    android:id="@+id/spinnerTipoBocadilloCrud"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="16dp" />
+
+                <!-- Spinner Día de la Semana -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Día de la Semana"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <Spinner
+                    android:id="@+id/spinnerDiaBocadilloCrud"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp" />
+
+                <!-- Campo de Icono -->
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/CustomTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtIcono"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Icono"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
-
         <!-- Botón Guardar -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnAgregar"
+            android:id="@+id/btnEditarBocadiloCrud"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_margin="20dp"
             android:layout_marginTop="15dp"
             android:elevation="6dp"
-            android:text="Agregar Alumno"
+            android:text="Editar Alumno"
             android:textColor="@color/white"
             app:backgroundTint="@color/marroncete"
             app:cornerRadius="16dp"
-            app:icon="@drawable/ic_add"
+            app:icon="@drawable/ic_guardar"
             app:iconTint="@color/white" />
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

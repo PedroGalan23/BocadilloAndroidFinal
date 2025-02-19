@@ -27,7 +27,6 @@
             app:icon="@drawable/ic_volver"
             app:iconTint="@color/white" />
 
-
         <!-- Card de Información -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -51,7 +50,7 @@
                     android:layout_gravity="center"
                     android:fontFamily="@font/montserrat_bold"
                     android:paddingBottom="16dp"
-                    android:text="Añadir Alumno"
+                    android:text="Agregar Bocadillo"
                     android:textColor="@color/marroncete"
                     android:textSize="28sp"
                     android:textStyle="bold" />
@@ -63,10 +62,10 @@
                     android:layout_height="wrap_content">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edtLogin"
+                        android:id="@+id/edtNombreBocadillo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Usuario (Login)"
+                        android:hint="Nombre del Bocadillo"
                         android:inputType="text" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -76,10 +75,10 @@
                     android:layout_height="wrap_content">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edtNombre"
+                        android:id="@+id/edtDescripcion"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Nombre"
+                        android:hint="Descripción"
                         android:inputType="text" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -89,67 +88,48 @@
                     android:layout_height="wrap_content">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edtApellidos"
+                        android:id="@+id/edtCoste"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Apellidos"
-                        android:inputType="text" />
+                        android:hint="Coste (€)"
+                        android:inputType="numberDecimal" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/CustomTextInputLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edtCorreo"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Correo Electrónico"
-                        android:inputType="textEmailAddress" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/CustomTextInputLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edtPassword"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Contraseña"
-                        android:inputType="textPassword" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/CustomTextInputLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edtCurso"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Curso"
-                        android:inputType="text" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <!-- Spinner de Rol -->
+                <!-- Spinner Tipo de Bocadillo -->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:text="Seleccionar Rol"
+                    android:text="Tipo de Bocadillo"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <Spinner
-                    android:id="@+id/spinnerRol"
+                    android:id="@+id/spinnerTipo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="16dp" />
+
+                <!-- Selección Múltiple de Alérgenos -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Seleccionar Alérgenos"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <!-- Layout dinámico para los CheckBoxes -->
+                <com.google.android.flexbox.FlexboxLayout
+                    android:id="@+id/layoutAlergenos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:flexWrap="wrap"
+                    app:justifyContent="flex_start"
+                    android:padding="8dp" />
+
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -162,11 +142,12 @@
             android:layout_margin="20dp"
             android:layout_marginTop="15dp"
             android:elevation="6dp"
-            android:text="Agregar Alumno"
+            android:text="Agregar Bocadillo"
             android:textColor="@color/white"
             app:backgroundTint="@color/marroncete"
             app:cornerRadius="16dp"
             app:icon="@drawable/ic_add"
             app:iconTint="@color/white" />
+
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

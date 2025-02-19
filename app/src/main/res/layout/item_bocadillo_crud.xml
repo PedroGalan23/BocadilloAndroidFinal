@@ -1,122 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_margin="8dp"
-    app:cardCornerRadius="12dp"
     app:cardElevation="6dp"
-    app:strokeWidth="2dp"
-    app:strokeColor="@color/marroncete"
-    android:background="@android:color/white">
+    app:cardCornerRadius="12dp">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="12dp">
+        android:padding="16dp">
 
         <!-- Imagen del bocadillo -->
         <ImageView
-            android:id="@+id/imgBocadillo"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_gravity="center"
+            android:id="@+id/imgBocadilloCrud"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
             android:scaleType="centerCrop"
+            android:contentDescription="Imagen del bocadillo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:src="@tools:sample/backgrounds/scenic"/>
 
-            tools:src="@tools:sample/backgrounds/scenic" />
-
-        <!-- Información del bocadillo -->
+        <!-- Nombre del bocadillo -->
         <TextView
-            android:id="@+id/txtNombreBocadillo"
-            android:layout_width="match_parent"
+            android:id="@+id/txtNombreBocadilloCrud"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="@android:color/black"
-            tools:text="Bocadillo de Jamón" />
+            app:layout_constraintStart_toEndOf="@id/imgBocadilloCrud"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="48dp"
+            tools:text="Bocadillo de Jamón"/>
 
+        <!-- Día de disponibilidad (Mejor contraste) -->
         <TextView
-            android:id="@+id/txtDescripcion"
-            android:layout_width="match_parent"
+            android:id="@+id/txtDiaCrud"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
+            android:textSize="14sp"
+            android:textColor="@android:color/black"
+            android:background="@android:color/holo_blue_light"
+            android:padding="8dp"
+            android:gravity="center"
+            app:layout_constraintStart_toStartOf="@id/txtNombreBocadilloCrud"
+            app:layout_constraintTop_toBottomOf="@id/txtNombreBocadilloCrud"
+            android:layout_marginTop="4dp"
+            tools:text="Disponible el: Lunes"/>
+
+        <!-- Tipo de bocadillo -->
+        <TextView
+            android:id="@+id/txtTipoCrud"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/holo_orange_dark"
+            app:layout_constraintStart_toStartOf="@id/txtDiaCrud"
+            app:layout_constraintTop_toBottomOf="@id/txtDiaCrud"
+            android:layout_marginTop="4dp"
+            tools:text="Tipo: Caliente"/>
+
+        <!-- Descripción del bocadillo -->
+        <TextView
+            android:id="@+id/txtDescripcionCrud"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:textSize="14sp"
             android:textColor="@android:color/darker_gray"
-            tools:text="Jamón serrano con tomate y aceite de oliva." />
-
-        <TextView
-            android:id="@+id/txtDia"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/txtTipoCrud"
+            app:layout_constraintTop_toBottomOf="@id/txtTipoCrud"
+            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="4dp"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:textColor="@color/marroncete"
-            tools:text="Disponible el: Lunes" />
+            tools:text="Jamón serrano con tomate y aceite de oliva."/>
 
+        <!-- Alérgenos -->
         <TextView
-            android:id="@+id/txtTipo"
-            android:layout_width="match_parent"
+            android:id="@+id/txtAlergenosCrud"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
             android:textSize="14sp"
-            android:textStyle="bold"
-            android:textColor="@color/marroncete"
-            tools:text="Tipo: Caliente" />
-
-        <TextView
-            android:id="@+id/txtAlergenos"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:textSize="12sp"
             android:textColor="@android:color/holo_red_dark"
-            tools:text="Alérgenos: Gluten, Lactosa" />
+            app:layout_constraintStart_toStartOf="@id/txtDescripcionCrud"
+            app:layout_constraintTop_toBottomOf="@id/txtDescripcionCrud"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="4dp"
+            tools:text="Alérgenos: Gluten, Lactosa"/>
 
+        <!-- Precio -->
         <TextView
-            android:id="@+id/txtCoste"
-            android:layout_width="match_parent"
+            android:id="@+id/txtCosteCrud"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
             android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="@android:color/black"
-            tools:text="Precio: 2.50€" />
+            app:layout_constraintStart_toStartOf="@id/txtAlergenosCrud"
+            app:layout_constraintTop_toBottomOf="@id/txtAlergenosCrud"
+            android:layout_marginTop="4dp"
+            tools:text="Precio: 2.50€"/>
 
-        <!-- Contenedor de botones -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="end"
-            android:paddingTop="8dp">
+        <!-- Botón Editar (Tamaño accesible) -->
+        <ImageView
+            android:id="@+id/btnEditarBocadiloCrud"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:clickable="true"
+            android:contentDescription="Editar"
+            android:focusable="true"
+            android:padding="8dp"
+            android:src="@drawable/ic_editar_alumno"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
+        <!-- Botón Eliminar (Tamaño accesible) -->
+        <ImageView
+            android:id="@+id/btnEliminarBocadiloCrud"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="4dp"
+            android:clickable="true"
+            android:contentDescription="Eliminar"
+            android:focusable="true"
+            android:padding="8dp"
+            android:src="@drawable/ic_borrar_alumno"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnEditarBocadiloCrud" />
 
-            <ImageView
-                android:id="@+id/btnEditarAlumno"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:clickable="true"
-                android:contentDescription="Editar"
-                android:focusable="true"
-                android:padding="4dp"
-                android:src="@drawable/ic_editar_alumno" />
-
-            <ImageView
-                android:id="@+id/btnEliminarAlumno"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_borrar_alumno"
-                android:contentDescription="Eliminar"
-                android:padding="4dp"
-                android:clickable="true"
-                android:focusable="true" />
-        </LinearLayout>
-
-    </LinearLayout>
-
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

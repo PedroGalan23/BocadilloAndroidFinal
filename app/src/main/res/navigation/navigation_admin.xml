@@ -11,26 +11,25 @@
         android:label="fragment_admin_alumno"
         tools:layout="@layout/fragment_admin_alumno" >
         <action
-            android:id="@+id/action_fragment_admin_alumno_to_adminAgregarAlumnoFragment"
-            app:destination="@id/adminAgregarAlumnoFragment"
-            />
-        <action
             android:id="@+id/action_fragment_admin_alumno_to_adminEditarUsuarioFragment"
             app:destination="@id/adminEditarUsuarioFragment" />
+        <action
+            android:id="@+id/action_fragment_admin_alumno_to_adminAgregarUsuarioFragment"
+            app:destination="@id/adminAgregarUsuarioFragment" />
     </fragment>
     <fragment
         android:id="@+id/fragment_admin_bocadillo"
         android:name="com.example.bocadilloandroidfinal._admin.AdminBocadilloFragment"
         android:label="fragment_admin_bocadillo"
-        tools:layout="@layout/fragment_admin_bocadillo" />
-    <fragment
-        android:id="@+id/adminAgregarAlumnoFragment"
-        android:name="com.example.bocadilloandroidfinal._admin.AdminAgregarAlumnoFragment"
-        android:label="AdminAgregarAlumnoFragment" >
+        tools:layout="@layout/fragment_admin_bocadillo" >
         <action
-            android:id="@+id/action_adminAgregarAlumnoFragment_to_fragment_admin_alumno"
-            app:destination="@id/fragment_admin_alumno" />
+            android:id="@+id/action_fragment_admin_bocadillo_to_adminAgregarBocadilloFragment"
+            app:destination="@id/adminAgregarBocadilloFragment" />
+        <action
+            android:id="@+id/action_fragment_admin_bocadillo_to_adminEditarBocadilloFragment"
+            app:destination="@id/adminEditarBocadilloFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/adminEditarUsuarioFragment"
         android:name="com.example.bocadilloandroidfinal._admin.FragmentEditarUsuario"
@@ -42,5 +41,34 @@
         <action
             android:id="@+id/action_adminEditarUsuarioFragment_to_fragment_admin_alumno"
             app:destination="@id/fragment_admin_alumno" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminAgregarBocadilloFragment"
+        android:name="com.example.bocadilloandroidfinal._admin.AdminAgregarBocadilloFragment"
+        android:label="fragment_admin_agregar_bocadillo"
+        tools:layout="@layout/fragment_admin_agregar_bocadillo" >
+        <action
+            android:id="@+id/action_adminAgregarBocadilloFragment_to_fragment_admin_bocadillo"
+            app:destination="@id/fragment_admin_bocadillo" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminAgregarUsuarioFragment"
+        android:name="AdminAgregarUsuarioFragment"
+        android:label="AdminAgregarUsuarioFragment" >
+        <action
+            android:id="@+id/action_adminAgregarUsuarioFragment_to_fragment_admin_alumno"
+            app:destination="@id/fragment_admin_alumno" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminEditarBocadilloFragment"
+        android:name="com.example.bocadilloandroidfinal.ui.AdminEditarBocadilloFragment"
+        android:label="AdminEditarBocadilloFragment" >
+        <argument
+            android:name="bocadillo"
+            app:argType="com.example.bocadilloandroidfinal.modelos.Bocadillo"
+            app:nullable="false" />
+        <action
+            android:id="@+id/action_adminEditarBocadilloFragment_to_fragment_admin_bocadillo"
+            app:destination="@id/fragment_admin_bocadillo" />
     </fragment>
 </navigation>
