@@ -13,10 +13,10 @@ import androidx.navigation.fragment.navArgs
 import com.example.bocadilloandroidfinal.databinding.FragmentAdminEditarUsuarioBinding
 import com.example.bocadilloandroidfinal.viewmodels.UsuarioViewModel
 
-class FragmentEditarUsuario : Fragment() {
+class AdminEditarUsuarioFragment : Fragment() {
     private lateinit var binding: FragmentAdminEditarUsuarioBinding
     private val usuarioViewModel: UsuarioViewModel by viewModels()
-    private val args: FragmentEditarUsuarioArgs by navArgs()
+    private val args: AdminEditarUsuarioFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

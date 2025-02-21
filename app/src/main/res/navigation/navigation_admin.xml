@@ -33,7 +33,7 @@
 
     <fragment
         android:id="@+id/adminEditarUsuarioFragment"
-        android:name="com.example.bocadilloandroidfinal._admin.FragmentEditarUsuario"
+        android:name="com.example.bocadilloandroidfinal._admin.AdminEditarUsuarioFragment"
         android:label="AdminEditarUsuarioFragment" >
         <argument
             android:name="usuario"

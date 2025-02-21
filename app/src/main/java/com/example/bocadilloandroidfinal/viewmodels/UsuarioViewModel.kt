@@ -138,6 +138,21 @@ class UsuarioViewModel : ViewModel() {
             }
         }
     }
+    fun registrarUsuario(email: String, password: String, callback: (Boolean, String?) -> Unit) {
+        val auth = FirebaseAuth.getInstance()
+
+        auth.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    // Usuario creado con éxito
+                    val user = auth.currentUser
+                    callback(true, "Usuario registrado con éxito: ${user?.email}")
+                } else {
+                    // Error al registrar usuario
+                    callback(false, task.exception?.message)
+                }
+            }
+    }
     /**
      * Actualiza los datos de un usuario en Firebase
      */

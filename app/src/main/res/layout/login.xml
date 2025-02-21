@@ -112,6 +112,16 @@
                 android:fontFamily="@font/montserrat_bold"
                 app:iconGravity="end"
                 app:iconPadding="0dp" />
+
+            <TextView
+                android:id="@+id/tvRestablecer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_bold"
+                android:onClick="restablecerContraseña"
+                android:padding="20dp"
+                android:text="Restablecer Contraseña"
+                android:textSize="13sp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

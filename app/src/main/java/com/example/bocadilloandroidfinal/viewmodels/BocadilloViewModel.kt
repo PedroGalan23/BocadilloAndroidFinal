@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.bocadilloandroidfinal.api.RetrofitConnect
 import com.example.bocadilloandroidfinal.modelos.Bocadillo
-import com.example.bocadilloandroidfinal.modelos.Usuario
 import kotlinx.coroutines.launch
 
 class BocadilloViewModel : ViewModel() {

@@ -1,6 +1,7 @@
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
@@ -121,10 +122,23 @@ class AdminAgregarUsuarioFragment : Fragment() {
             rol = rol
         )
 
+        //Registra alumnos en el auth
         usuarioViewModel.insertarAlumno(nuevoUsuario) { exito ->
             if (exito) {
                 Toast.makeText(requireContext(), "Alumno guardado con éxito", Toast.LENGTH_SHORT).show()
                 findNavController().navigate(R.id.action_adminAgregarUsuarioFragment_to_fragment_admin_alumno)
+                nuevoUsuario.correo?.let {
+                    nuevoUsuario.password?.let { it1 ->
+                        usuarioViewModel.registrarUsuario(it, it1) { success, message ->
+                            if (success) {
+                                Log.d("FirebaseAuth", message ?: "Registro exitoso")
+                            } else {
+                                Log.e("FirebaseAuth", "Error al registrar usuario: $message")
+                            }
+                        }
+                    }
+                }
+
             } else {
                 Toast.makeText(requireContext(), "Error al guardar el alumno", Toast.LENGTH_SHORT).show()
             }
