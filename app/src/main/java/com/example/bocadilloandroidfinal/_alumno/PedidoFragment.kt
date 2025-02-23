@@ -65,7 +65,13 @@ class PedidoFragment : Fragment() {
 
         pedidoViewModel.pedidoDelDia.observe(viewLifecycleOwner) { pedido ->
             if (pedido != null) {
-                findNavController().navigate(R.id.action_fragment_pedido_to_resumenFragment) // 🔥 Redirige si ya hay pedido
+                if (pedido.estado) {
+                    // Si el pedido está marcado como retirado, navega a RetiradoFragment
+                    findNavController().navigate(R.id.action_fragment_pedido_to_retiradoFragment)
+                } else {
+                    // Si el pedido no está marcado como retirado, navega a ResumenFragment
+                    findNavController().navigate(R.id.action_fragment_pedido_to_resumenFragment)
+                }
             }
         }
 

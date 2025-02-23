@@ -52,6 +52,10 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:2.7.4")
     implementation("androidx.cardview:cardview:1.0.0")
     implementation("com.google.firebase:firebase-auth-ktx")
+    implementation ("com.google.android.gms:play-services-auth:20.7.0")
+    implementation ("com.google.zxing:core:3.5.2")
+    implementation ("com.journeyapps:zxing-android-embedded:4.3.0")
+
     implementation(platform("com.google.firebase:firebase-bom:33.0.0"))
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.8.7")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7")
@@ -59,5 +63,6 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("com.google.android.material:material:1.9.0")
     implementation ("com.google.android.flexbox:flexbox:3.0.0")
+    implementation(libs.androidx.monitor)
 
 }

@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:background="@color/main"
     android:orientation="vertical"
-    android:gravity="center">
+    android:gravity="center"
+    tools:context="_cocina.CocinaFragment">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_fragment_cocina"
@@ -18,9 +19,9 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationViewcocina"
+        app:menu="@menu/cocina_bottom_menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
-        app:menu="@menu/cocina_bottom_menu" />
+        android:background="@color/white" />
 
 </LinearLayout>

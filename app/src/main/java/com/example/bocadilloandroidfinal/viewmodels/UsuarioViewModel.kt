@@ -33,6 +33,9 @@ class UsuarioViewModel : ViewModel() {
     private val _usuarios = MutableLiveData<List<Usuario>>()
     val usuarios: LiveData<List<Usuario>> get() = _usuarios
 
+    private val _usuario_pedido= MutableLiveData<Usuario?>()
+    val usuario_pedido: LiveData<Usuario?> get() = _usuario_pedido
+
 
     var usuarioIdFirebase: String? = null  // Guarda el ID generado por Firebase
 
@@ -114,6 +117,25 @@ class UsuarioViewModel : ViewModel() {
                     usuarioIdFirebase = usuarioId
                 } else {
                     _errorMensaje.value = "No se encontró un usuario con el email: $email"
+                }
+            } catch (e: Exception) {
+                _errorMensaje.value = "Error al obtener usuario: ${e.message}"
+            }
+        }
+    }
+    fun fetchUsuarioById(id: String) {
+        viewModelScope.launch {
+            try {
+                val response = RetrofitConnect.apiUsuario.getUsuarios()
+                val usuarioEntry = response?.entries?.find { it.value.id == id }
+
+                if (usuarioEntry != null) {
+                    val usuarioId = usuarioEntry.key  // 🔥 ID generado por Firebase
+                    val usuarioEncontrado = usuarioEntry.value.copy(id = usuarioId)
+
+                    _usuario_pedido.value = usuarioEncontrado
+                    _mensaje.value = "Usuario encontrado: ${usuarioEncontrado.nombre}"
+                    _errorMensaje.value = "No se encontró un usuario con el id: $id"
                 }
             } catch (e: Exception) {
                 _errorMensaje.value = "Error al obtener usuario: ${e.message}"

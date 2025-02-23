@@ -21,6 +21,8 @@ class AdminAlumnoFragment : Fragment() {
     private var _binding: FragmentAdminAlumnoBinding? = null
     private val binding get() = _binding!!
 
+
+
     private val usuarioViewModel: UsuarioViewModel by viewModels()
     private lateinit var usuarioAdapter: UsuarioAdapter
 

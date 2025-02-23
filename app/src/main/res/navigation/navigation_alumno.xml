@@ -17,6 +17,9 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_fragment_pedido_to_retiradoFragment"
+            app:destination="@id/retiradoFragment" />
     </fragment>
     <fragment
         android:id="@+id/fragment_calendario"
@@ -45,6 +48,11 @@
             app:popEnterAnim="@anim/slide_in_right"
             app:popExitAnim="@anim/slide_out_left" />
     </fragment>
+    <fragment
+        android:id="@+id/retiradoFragment"
+        android:name="com.example.bocadilloandroidfinal._alumno.RetiradoFragment"
+        android:label="fragment_retirado"
+        tools:layout="@layout/fragment_retirado" />
 
 
 </navigation>

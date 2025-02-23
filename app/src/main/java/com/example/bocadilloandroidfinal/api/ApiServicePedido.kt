@@ -14,4 +14,8 @@ interface ApiServicePedido {
 
     @DELETE("pedidos/{id}.json")
     suspend fun cancelarPedido(@Path("id") id: String): Response<Void>
+
+    @PATCH("pedidos/{id}.json")
+    suspend fun actualizarEstadoPedido(@Path("id") id: String, @Body update: Map<String, Boolean>): Response<Void>
+
 }

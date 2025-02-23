@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "877677668660",
+    "firebase_url": "https://bocadillofinal-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "bocadillofinal",
+    "storage_bucket": "bocadillofinal.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:877677668660:android:ea838f26614db6f86d5d61",
+        "android_client_info": {
+          "package_name": "com.example.bocadilloandroidfinal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "877677668660-8aqf4e7cat9ev20g3e1g8nq5rto17cob.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bocadilloandroidfinal",
+            "certificate_hash": "045ca0dea74085fe987b713b30f53cf321450615"
+          }
+        },
+        {
+          "client_id": "877677668660-0i8lb5l08f115q1v701sbon40t1844fb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVqHCYPiqSAGzVdLXoSNF5jcBjPeTi8xo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "877677668660-0i8lb5l08f115q1v701sbon40t1844fb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

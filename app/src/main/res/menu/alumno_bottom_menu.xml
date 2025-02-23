@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/menu_salir"
+        android:id="@+id/menu_salir_cocina_admin"
         android:icon="@drawable/ic_salir"
         android:title="Salir"/>
 

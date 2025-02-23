@@ -1,11 +1,11 @@
-package com.example.bocadilloandroidfinal._cocina
+package com.example.bocadilloandroidfinal._alumno
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -17,52 +17,49 @@ import com.example.bocadilloandroidfinal.viewmodels.UsuarioViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 
-class CocinaFragment : Fragment() {    private val usuarioViewModel: UsuarioViewModel by viewModels()
+class AlumnoFragment : Fragment() {
+    private val usuarioViewModel: UsuarioViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.dashboard_cocina, container, false)
+        return inflater.inflate(R.layout.dashboard_alumno, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val bottomNavigationView = view.findViewById<BottomNavigationView>(R.id.bottomNavigationViewcocina)
+        val bottomNavigationView = view.findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+        val tvWelcome = view.findViewById<TextView>(R.id.tv_welcome)
 
         // Configurar navegación con `NavHostFragment`
-        val navHostFragment = childFragmentManager.findFragmentById(R.id.nav_host_fragment_cocina) as? NavHostFragment
+        val navHostFragment = childFragmentManager.findFragmentById(R.id.nav_host_fragment_alumno) as? NavHostFragment
         val navController = navHostFragment?.navController
 
         if (navController != null) {
             bottomNavigationView.setupWithNavController(navController)
         }
 
+        // Observar datos del usuario
+        usuarioViewModel.usuarioAutenticado.observe(viewLifecycleOwner) { usuario ->
+            if (usuario != null) {
+                tvWelcome.text = "Hola, ${usuario.nombre} 👋"
+            }
+        }
+
+        // Cerrar sesión al seleccionar la opción en el menú
         bottomNavigationView.setOnItemSelectedListener { item ->
             if (item.itemId == R.id.menu_salir_cocina_admin) {
                 cerrarSesion()
                 true
-            } else if (navController?.currentDestination?.getAction(item.itemId) != null) {
-                navController.navigate(item.itemId)
-                true
             } else {
-                false
+                navController?.navigate(item.itemId)
+                true
             }
         }
-
-    }
-/*
-    private fun cerrarSesion() {
-        Log.d("CocinaFragment", "Método cerrarSesion llamado correctamente")
-        usuarioViewModel.signOut()
-        Toast.makeText(requireContext(), "Sesión cerrada", Toast.LENGTH_SHORT).show()
-        requireActivity().supportFragmentManager.beginTransaction()
-            .replace(R.id.nav_host_fragment, com.example.bocadilloandroidfinal.LoginFragment())
-            .commit()
     }
 
- */
     private fun cerrarSesion() {
         usuarioViewModel.signOut()
         FirebaseAuth.getInstance().signOut()
@@ -74,6 +71,5 @@ class CocinaFragment : Fragment() {    private val usuarioViewModel: UsuarioView
         startActivity(intent)
         requireActivity().finish()
     }
-
 
 }
