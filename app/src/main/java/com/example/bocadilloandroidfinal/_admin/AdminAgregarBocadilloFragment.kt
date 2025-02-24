@@ -16,10 +16,10 @@ import com.example.bocadilloandroidfinal.modelos.Bocadillo
 import com.example.bocadilloandroidfinal.viewmodels.BocadilloViewModel
 
 class AdminAgregarBocadilloFragment : Fragment() {
-
+    //Declaramos el binding
     private lateinit var binding: FragmentAdminAgregarBocadilloBinding
     private val bocadilloViewModel: BocadilloViewModel by viewModels()
-
+    //Los alergenos no los recojo ya que son pocos
     private val alergenosDisponibles = mapOf(
         "-OIXyGEpWE3eNaVReeum" to "Gluten",
         "-OIXyI8q_DQ00NepPj3Z" to "Huevo",
@@ -66,6 +66,7 @@ class AdminAgregarBocadilloFragment : Fragment() {
         }
     }
 
+    //Guardamos todos los alergenos selecionados si están chqueados
     private fun obtenerAlergenosSeleccionados(): Map<String, String> {
         val alergenosSeleccionados = mutableMapOf<String, String>()
         for (i in 0 until binding.layoutAlergenos.childCount) {
@@ -96,6 +97,7 @@ class AdminAgregarBocadilloFragment : Fragment() {
         }
 
         val alergenos = obtenerAlergenosSeleccionados()
+        //Creamos un nuevo Bocadillo
         val nuevoBocadillo = Bocadillo(
             nombre = nombre,
             descripcion = descripcion,
@@ -105,7 +107,7 @@ class AdminAgregarBocadilloFragment : Fragment() {
             dia = "",
             alergenos = alergenos
         )
-
+        //Llamamos a insertar y utilizamos un lambda para verificar las opciones
         bocadilloViewModel.insertarBocadillo(nuevoBocadillo) { exito ->
             if (exito) {
                 Toast.makeText(requireContext(), "Bocadillo guardado con éxito", Toast.LENGTH_SHORT).show()

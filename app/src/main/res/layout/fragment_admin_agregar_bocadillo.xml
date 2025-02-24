@@ -13,7 +13,6 @@
         android:padding="24dp"
         android:orientation="vertical">
 
-        <!-- Botón Volver -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnVolver"
             android:layout_width="wrap_content"
@@ -27,7 +26,6 @@
             app:icon="@drawable/ic_volver"
             app:iconTint="@color/white" />
 
-        <!-- Card de Información -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -42,7 +40,6 @@
                 android:orientation="vertical"
                 android:padding="10dp">
 
-                <!-- Título -->
                 <TextView
                     android:id="@+id/txtTitulo"
                     android:layout_width="wrap_content"
@@ -55,7 +52,6 @@
                     android:textSize="28sp"
                     android:textStyle="bold" />
 
-                <!-- Campos de Entrada -->
                 <com.google.android.material.textfield.TextInputLayout
                     style="@style/CustomTextInputLayout"
                     android:layout_width="match_parent"
@@ -95,7 +91,6 @@
                         android:inputType="numberDecimal" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- Spinner Tipo de Bocadillo -->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -111,7 +106,6 @@
                     android:layout_height="wrap_content"
                     android:padding="16dp" />
 
-                <!-- Selección Múltiple de Alérgenos -->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -121,7 +115,6 @@
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
-                <!-- Layout dinámico para los CheckBoxes -->
                 <com.google.android.flexbox.FlexboxLayout
                     android:id="@+id/layoutAlergenos"
                     android:layout_width="match_parent"
@@ -133,7 +126,6 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- Botón Guardar -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnAgregar"
             android:layout_width="wrap_content"

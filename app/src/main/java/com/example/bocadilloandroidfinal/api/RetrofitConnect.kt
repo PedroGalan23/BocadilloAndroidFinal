@@ -2,7 +2,10 @@ package com.example.bocadilloandroidfinal.api
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-
+/*
+    El objeto RetrofitConnect sirve para centralizar la configuración de Retrofit
+    en tu aplicación y proporciona acceso a las distintas APIs que has definido.
+ */
 object RetrofitConnect{
     const val URL_BASE = "https://bocadillofinal-default-rtdb.europe-west1.firebasedatabase.app/"
     val apiBocadillo: ApiServiceBocadillo by lazy {

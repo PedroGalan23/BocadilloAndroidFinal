@@ -15,12 +15,14 @@ class PedidoAdapter(
     private var pedidos: List<Pedido>
 ) : RecyclerView.Adapter<PedidoAdapter.PedidoViewHolder>() {
 
+    //Creamos la vista correspondiente a partir del item_pedido
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PedidoViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_pedido, parent, false)
         return PedidoViewHolder(view)
     }
 
+    //Actualizamos la lista si sucede algún cambio y notificamos para que RecyclerView refresque
     fun actualizarLista(nuevaLista: List<Pedido>) {
         pedidos = nuevaLista
         notifyDataSetChanged()
@@ -31,7 +33,7 @@ class PedidoAdapter(
 
         holder.tvNombreBocadillo.text = pedido.bocadillo.nombre
 
-        // Formatear fecha
+        // Formatear fecha para que MariCarmen no se queje
         val sdf = SimpleDateFormat("dd/MM/yyyy - HH:mm", Locale.getDefault())
         holder.tvFecha.text = sdf.format(pedido.fecha_hora.toDate())
 
@@ -51,7 +53,7 @@ class PedidoAdapter(
     }
 
     override fun getItemCount(): Int = pedidos.size
-
+    //Recuperamos las referencias de la vista con el ViewHolder
     class PedidoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val tvNombreBocadillo: TextView = view.findViewById(R.id.tvNombreBocadillo)
         val tvFecha: TextView = view.findViewById(R.id.tvFecha)

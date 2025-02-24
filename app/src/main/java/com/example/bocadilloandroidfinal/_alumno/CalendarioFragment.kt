@@ -24,7 +24,7 @@ class CalendarioFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        Log.d("DEBUG", "CalendarioFragment -> onCreateView") // 👀 Depuración
+        Log.d("DEBUG", "CalendarioFragment -> onCreateView") // Depuración
         _binding = FragmentCalendarioBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -52,7 +52,7 @@ class CalendarioFragment : Fragment() {
         Log.d("DEBUG", "RecyclerView configurado con GridLayoutManager")
         bocadilloViewModel.fetchBocadillos()
 
-        // 👇 PRIMERO se activa el observe, DESPUÉS se ejecuta fetchBocadillos()
+        //  PRIMERO se activa el observe, DESPUÉS se ejecuta fetchBocadillos()
         bocadilloViewModel.bocadillos.observe(viewLifecycleOwner) { bocadillosList ->
             Log.d("DEBUG", "Observe activado -> Se recibieron ${bocadillosList.size} bocadillos")
 

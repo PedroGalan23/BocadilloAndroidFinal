@@ -28,6 +28,7 @@ class PerfilFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //utilizamos una función lambda para vincular los valores del usuario con la vista
         usuarioViewModel.usuarioAutenticado.observe(viewLifecycleOwner) { usuario ->
             if (usuario != null) {
                 binding.etNombre.setText(usuario.nombre)
@@ -35,16 +36,18 @@ class PerfilFragment : Fragment() {
                 binding.etCurso.setText(usuario.curso)
                 binding.tvCorreo.text = usuario.correo
                 binding.tvRol.text = usuario.rol
-                binding.tvId.text = usuario.id  // 🔥 Ahora se muestra el ID del usuario
+                binding.tvId.text = usuario.id  // Ahora se muestra el ID del usuario
             }
         }
 
+        // Si se devuelve algun mensaje estamos en constante Escucha (Nombre actualizado,Apellido Actualizado)
         usuarioViewModel.mensaje.observe(viewLifecycleOwner) { mensaje ->
             if (!mensaje.isNullOrEmpty()) {
                 Toast.makeText(requireContext(), mensaje, Toast.LENGTH_SHORT).show()
             }
         }
 
+        //Si se da algún mensaje de error estamos en constante Escucha para determinar el error
         usuarioViewModel.errorMensaje.observe(viewLifecycleOwner) { error ->
             if (!error.isNullOrEmpty()) {
                 Toast.makeText(requireContext(), error, Toast.LENGTH_SHORT).show()
@@ -52,10 +55,12 @@ class PerfilFragment : Fragment() {
         }
 
         binding.btnActualizarPerfil.setOnClickListener {
+            //Pasamos los valores omitiendo los espacios
             val nuevoNombre = binding.etNombre.text.toString().trim()
             val nuevosApellidos = binding.etApellidos.text.toString().trim()
             val nuevoCurso = binding.etCurso.text.toString().trim()
 
+            //Actualizamos solo algunos valores del Usuario
             usuarioViewModel.updateUsuarioPerfil(
                 nombre = nuevoNombre,
                 apellidos = nuevosApellidos,
@@ -63,6 +68,7 @@ class PerfilFragment : Fragment() {
             )
         }
     }
+    //Destruimos el bind
 
     override fun onDestroyView() {
         super.onDestroyView()

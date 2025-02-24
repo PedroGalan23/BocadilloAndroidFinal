@@ -42,6 +42,7 @@ class AdminAlumnoFragment : Fragment() {
 
         //  Usar binding.recyclerViewAlumnos en lugar de findViewById
         binding.recyclerViewAlumnos.layoutManager = LinearLayoutManager(requireContext())
+        //Declaramos el adapter, indicando que funciones se llamarán pulsando en los iconos del item
         usuarioAdapter = UsuarioAdapter(
             lista_usuarios = emptyList(),
             onEditarClick = { usuario -> irAEditarUsuario(usuario) }, //  Editar usuario
@@ -50,6 +51,7 @@ class AdminAlumnoFragment : Fragment() {
         binding.recyclerViewAlumnos.adapter = usuarioAdapter
 
         usuarioViewModel.usuarios.observe(viewLifecycleOwner) { usuarios ->
+            //Si usuario es diferente de nulo se acutalizará sino no hay datos
             if (!usuarios.isNullOrEmpty()) {
                 usuarioAdapter.actualizarLista(usuarios)
             } else {
@@ -61,6 +63,7 @@ class AdminAlumnoFragment : Fragment() {
             Toast.makeText(requireContext(), mensaje, Toast.LENGTH_LONG).show()
         }
 
+        //En el floating vamos a Agregar
         binding.fabAgregar.setOnClickListener {
             findNavController().navigate(R.id.action_fragment_admin_alumno_to_adminAgregarUsuarioFragment)
         }

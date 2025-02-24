@@ -24,7 +24,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvEstado"
             tools:text="ID-48729958l" />
-        <!-- Nombre del Bocadillo -->
+
         <TextView
             android:id="@+id/tvNombreBocadillo"
             android:layout_width="0dp"
@@ -39,7 +39,6 @@
             app:layout_constraintHorizontal_bias="0"
             tools:text="Bocadillo de Jamón" />
 
-        <!-- Fecha del Pedido -->
         <TextView
             android:id="@+id/tvFecha"
             android:layout_width="wrap_content"
@@ -51,7 +50,6 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="12/02/2025 - 12:30 PM" />
 
-        <!-- Estado del Pedido -->
         <TextView
             android:id="@+id/tvEstado"
             android:layout_width="0dp"
@@ -65,7 +63,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             tools:text="No Retirado" />
 
-        <!-- Icono de Precio -->
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="30dp"
@@ -75,7 +72,6 @@
             app:layout_constraintTop_toBottomOf="@id/tvEstado"
             tools:srcCompat="@drawable/ic_precio" />
 
-        <!-- Coste del Pedido -->
         <TextView
             android:id="@+id/tvCoste"
             android:layout_width="wrap_content"

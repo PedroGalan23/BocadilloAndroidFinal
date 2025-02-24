@@ -13,7 +13,6 @@
         android:layout_height="wrap_content"
         android:padding="16dp">
 
-        <!-- Imagen del bocadillo -->
         <ImageView
             android:id="@+id/imgBocadilloCrud"
             android:layout_width="120dp"
@@ -25,7 +24,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             tools:src="@tools:sample/backgrounds/scenic"/>
 
-        <!-- Nombre del bocadillo -->
         <TextView
             android:id="@+id/txtNombreBocadilloCrud"
             android:layout_width="0dp"
@@ -39,8 +37,6 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="48dp"
             tools:text="Bocadillo de Jamón"/>
-
-        <!-- Día de disponibilidad (Mejor contraste) -->
         <TextView
             android:id="@+id/txtDiaCrud"
             android:layout_width="wrap_content"
@@ -55,7 +51,6 @@
             android:layout_marginTop="4dp"
             tools:text="Disponible el: Lunes"/>
 
-        <!-- Tipo de bocadillo -->
         <TextView
             android:id="@+id/txtTipoCrud"
             android:layout_width="wrap_content"
@@ -68,7 +63,6 @@
             android:layout_marginTop="4dp"
             tools:text="Tipo: Caliente"/>
 
-        <!-- Descripción del bocadillo -->
         <TextView
             android:id="@+id/txtDescripcionCrud"
             android:layout_width="0dp"
@@ -81,7 +75,6 @@
             android:layout_marginTop="4dp"
             tools:text="Jamón serrano con tomate y aceite de oliva."/>
 
-        <!-- Alérgenos -->
         <TextView
             android:id="@+id/txtAlergenosCrud"
             android:layout_width="0dp"
@@ -94,7 +87,6 @@
             android:layout_marginTop="4dp"
             tools:text="Alérgenos: Gluten, Lactosa"/>
 
-        <!-- Precio -->
         <TextView
             android:id="@+id/txtCosteCrud"
             android:layout_width="wrap_content"
@@ -107,7 +99,6 @@
             app:layout_constraintTop_toBottomOf="@id/txtAlergenosCrud"
             tools:text="Precio: 2.50€" />
 
-        <!-- Botón Editar (Tamaño accesible) -->
         <ImageView
             android:id="@+id/btnEditarBocadiloCrud"
             android:layout_width="48dp"
@@ -120,7 +111,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Botón Eliminar (Tamaño accesible) -->
         <ImageView
             android:id="@+id/btnEliminarBocadiloCrud"
             android:layout_width="48dp"

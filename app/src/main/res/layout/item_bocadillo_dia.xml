@@ -14,7 +14,6 @@
         android:layout_height="match_parent"
         android:padding="12dp">
 
-        <!-- Día asociado (Etiqueta superior derecha) -->
         <TextView
             android:id="@+id/tvDia"
             android:layout_width="wrap_content"
@@ -28,7 +27,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Icono del bocadillo -->
         <ImageView
             android:id="@+id/ivBocadillo"
             android:layout_width="72dp"
@@ -36,7 +34,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Nombre del bocadillo -->
         <TextView
             android:id="@+id/tvNombreBocadillo"
             android:layout_width="0dp"
@@ -50,7 +47,6 @@
             app:layout_constraintStart_toEndOf="@id/ivBocadillo"
             app:layout_constraintTop_toTopOf="@id/ivBocadillo" />
 
-        <!-- Tipo (Caliente o Frío) -->
         <TextView
             android:id="@+id/tvTipo"
             android:layout_width="wrap_content"
@@ -64,7 +60,6 @@
             app:layout_constraintStart_toStartOf="@id/tvNombreBocadillo"
             app:layout_constraintTop_toBottomOf="@id/tvNombreBocadillo" />
 
-        <!-- Descripción del bocadillo -->
         <TextView
             android:id="@+id/tvDescripcion"
             android:layout_width="0dp"
@@ -77,7 +72,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvTipo" />
 
-        <!-- Alergenos -->
         <TextView
             android:id="@+id/tvAlergenos"
             android:layout_width="wrap_content"
@@ -89,7 +83,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvDescripcion" />
 
-        <!-- Coste en la esquina inferior derecha -->
         <TextView
             android:id="@+id/tvCoste"
             android:layout_width="wrap_content"

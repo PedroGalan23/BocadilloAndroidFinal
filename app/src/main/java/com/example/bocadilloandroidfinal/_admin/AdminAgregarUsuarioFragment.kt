@@ -67,11 +67,13 @@ class AdminAgregarUsuarioFragment : Fragment() {
     }
 
     private fun validarFormulario() {
+        //Validamos que no esté vacío eliminando los espacios
         val login = binding.edtLogin.text.toString().trim()
         val nombre = binding.edtNombre.text.toString().trim()
         val correo = binding.edtCorreo.text.toString().trim()
         val password = binding.edtPassword.text.toString().trim()
 
+        //Validamos el email
         val emailValido = Patterns.EMAIL_ADDRESS.matcher(correo).matches()
         val passwordValida = password.length >= 6
         val camposNoVacios = login.isNotEmpty() && nombre.isNotEmpty() && correo.isNotEmpty() && password.isNotEmpty()
@@ -94,6 +96,7 @@ class AdminAgregarUsuarioFragment : Fragment() {
     }
 
     private fun guardarAlumno() {
+        //Guardamos el alumno en la bd
         val login = binding.edtLogin.text.toString().trim()
         val nombre = binding.edtNombre.text.toString().trim()
         val apellidos = binding.edtApellidos.text.toString().trim()
@@ -112,7 +115,7 @@ class AdminAgregarUsuarioFragment : Fragment() {
         }
 
         val nuevoUsuario = Usuario(
-            id = null, // 🔥 Firebase generará el ID
+            id = null, // Firebase generará el ID
             login = login,
             nombre = nombre,
             apellidos = apellidos,

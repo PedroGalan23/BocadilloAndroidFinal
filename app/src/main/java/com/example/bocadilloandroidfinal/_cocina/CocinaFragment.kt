@@ -31,7 +31,7 @@ class CocinaFragment : Fragment() {    private val usuarioViewModel: UsuarioView
 
         val bottomNavigationView = view.findViewById<BottomNavigationView>(R.id.bottomNavigationViewcocina)
 
-        // Configurar navegación con `NavHostFragment`
+        // Configurar navegación con NavHostFragment
         val navHostFragment = childFragmentManager.findFragmentById(R.id.nav_host_fragment_cocina) as? NavHostFragment
         val navController = navHostFragment?.navController
 
@@ -43,6 +43,7 @@ class CocinaFragment : Fragment() {    private val usuarioViewModel: UsuarioView
             if (item.itemId == R.id.menu_salir_cocina_admin) {
                 cerrarSesion()
                 true
+                //Aseguramos que el destinoactual no es nulo para evitar fallos
             } else if (navController?.currentDestination?.getAction(item.itemId) != null) {
                 navController.navigate(item.itemId)
                 true

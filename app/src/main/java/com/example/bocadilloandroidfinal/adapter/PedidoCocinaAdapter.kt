@@ -10,12 +10,14 @@ import com.example.bocadilloandroidfinal.R
 import com.example.bocadilloandroidfinal.modelos.Pedido
 import java.text.SimpleDateFormat
 import java.util.*
-
+//Recibe la lista de pedidos y el Método de OnPedidoSeleccionado
 class PedidoCocinaAdapter(
     private var pedidos: List<Pedido>,
+    //Desde su llamada será adjuntado con un lamda lo que pasará cuando se seleccione
     private val onPedidoSeleccionado: (Pedido) -> Unit
 ) : RecyclerView.Adapter<PedidoCocinaAdapter.PedidoCocinaViewHolder>() {
 
+    //Actualizamos la Lista si Ocurre algún cambio en FireBase
     fun actualizarLista(nuevaLista: List<Pedido>) {
         pedidos = nuevaLista
         notifyDataSetChanged()
@@ -47,15 +49,16 @@ class PedidoCocinaAdapter(
             onPedidoSeleccionado(pedido)
         }
     }
-
+    //Recuento de los elementos
     override fun getItemCount(): Int = pedidos.size
 
+    //Creamos la vista a partir del item pedido_cocina
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PedidoCocinaViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_pedido_cocina, parent, false)
         return PedidoCocinaViewHolder(view)
     }
-
+    //Recuperamos los valores de la vista con el viewHolder
     class PedidoCocinaViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val tvNombreBocadillo: TextView = view.findViewById(R.id.tvNombreBocadillo)
         val tvFecha: TextView = view.findViewById(R.id.tvFecha)

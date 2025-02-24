@@ -15,10 +15,12 @@ import com.example.bocadilloandroidfinal.modelos.Usuario
 class BocadilloCrudAdapter (
     //Valores que recibe el constructor
     private var lista_bocadillos: List<Bocadillo>,
-    private val onEditarClick: (Bocadillo) -> Unit,  // 🔥 Callback para editar
-    private val onEliminarClick: (Bocadillo) -> Unit // 🔥 Callback para eliminar
+    //Desde aqí asignamos la llamada al CRUD pasando el Obtejo bocadillo a Serializar
+    private val onEditarClick: (Bocadillo) -> Unit,  // Callback para editar
+    private val onEliminarClick: (Bocadillo) -> Unit // Callback para eliminar
 ): RecyclerView.Adapter<BocadilloCrudAdapter.BocadilloViewHolder>(){
 
+    //Creamos la vista para cada item del RecyclerView
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BocadilloViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_bocadillo_crud, parent, false)
@@ -26,7 +28,7 @@ class BocadilloCrudAdapter (
         return BocadilloViewHolder(view)
     }
 
-
+    //Obtenemos una cuenta de todos los elementos obtenidos
     override fun getItemCount(): Int {
         Log.d("DEBUG", "Adaptador Usuarios-> getItemCount() devuelve ${lista_bocadillos.size}")
         return lista_bocadillos.size
@@ -50,26 +52,26 @@ class BocadilloCrudAdapter (
         holder.txtTipo.text = "Tipo: ${bocadillo.tipo}"
         holder.tvID.text=bocadillo.id
 
-
+        //Mediante el holder llamamos al metodo de editar y le pasamos el Objeto bocadillo
         holder.imgEdit.setOnClickListener {
             onEditarClick(bocadillo)
         }
-
+        //Mediante el holder llamamos al método editar y le pasamos el obtejo bocadillo
         holder.imgDelete.setOnClickListener {
             onEliminarClick(bocadillo)
         }
-
 
         // holder.imgEdit.setOnClickListener { onEditarClick(bocadillo) }
         //holder.imgDelete.setOnClickListener { onEliminarClick(bocadillo) }
 
     }
+    //Usamos actualizar si hay algun cambio en FireBase
     fun actualizarLista(nuevaLista: List<Bocadillo>) {
         Log.d("DEBUG", "Adaptador -> actualizando lista con ${nuevaLista.size} bocadillos")
         lista_bocadillos = nuevaLista
-        notifyDataSetChanged() // <- Asegura que RecyclerView se actualiza
+        notifyDataSetChanged() // Asegura que RecyclerView se actualiza
     }
-
+    //Vinculación de las vistas con el Holder
     class BocadilloViewHolder(view: View):RecyclerView.ViewHolder(view){
         val imgBocadillo: ImageView = view.findViewById(R.id.imgBocadilloCrud)
         val txtNombreBocadillo: TextView = view.findViewById(R.id.txtNombreBocadilloCrud)

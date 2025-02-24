@@ -12,7 +12,6 @@
         android:gravity="center_horizontal"
         android:padding="16dp">
 
-        <!-- Título -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -22,7 +21,6 @@
             android:textColor="@color/black"
             android:paddingBottom="12dp" />
 
-        <!-- Contenedor de perfil -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -35,7 +33,6 @@
                 android:orientation="vertical"
                 android:padding="8dp">
 
-                <!-- ID (No editable) -->
                 <TextView
                     android:id="@+id/tvId"
                     android:layout_width="wrap_content"
@@ -45,7 +42,6 @@
                     android:textStyle="bold"
                     android:paddingBottom="8dp" />
 
-                <!-- Correo (No editable) -->
                 <TextView
                     android:id="@+id/tvCorreo"
                     android:layout_width="wrap_content"
@@ -55,7 +51,6 @@
                     android:textStyle="bold"
                     android:paddingBottom="8dp" />
 
-                <!-- Rol (No editable) -->
                 <TextView
                     android:id="@+id/tvRol"
                     android:layout_width="wrap_content"
@@ -65,7 +60,6 @@
                     android:textStyle="bold"
                     android:paddingBottom="8dp" />
 
-                <!-- Nombre -->
                 <EditText
                     android:id="@+id/etNombre"
                     android:layout_width="match_parent"
@@ -75,7 +69,6 @@
                     android:padding="20dp"
                     android:textSize="16sp" />
 
-                <!-- Apellidos -->
                 <EditText
                     android:id="@+id/etApellidos"
                     android:layout_width="match_parent"
@@ -85,7 +78,6 @@
                     android:padding="20dp"
                     android:textSize="16sp" />
 
-                <!-- Curso -->
                 <EditText
                     android:id="@+id/etCurso"
                     android:layout_width="match_parent"
@@ -95,9 +87,6 @@
                     android:padding="20dp"
                     android:textSize="16sp" />
 
-                <!-- Alergias -->
-
-                <!-- Botón Guardar -->
                 <Button
                     android:id="@+id/btnActualizarPerfil"
                     android:layout_width="match_parent"

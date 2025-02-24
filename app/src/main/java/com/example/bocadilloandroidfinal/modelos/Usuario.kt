@@ -11,7 +11,12 @@ data class Usuario(
     val password: String? = null,
     val curso: String? = null,
     val rol: String? = null
-) : Serializable
-//Permitimos pasar a Usuario como un argumento en el grafo de navegacion
 
+    //Permitimos pasar a Usuario como un argumento en safeArgs
+) : Serializable
+/*
+    Serializar significa convertir un objeto
+    en una secuencia de bytes o un formato de datos (como JSON o XML) que puede
+    ser fácilmente almacenado, transmitido o enviado a través de una red.
+ */
 

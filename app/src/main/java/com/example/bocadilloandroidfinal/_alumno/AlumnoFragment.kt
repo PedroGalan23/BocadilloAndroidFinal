@@ -33,7 +33,7 @@ class AlumnoFragment : Fragment() {
         val bottomNavigationView = view.findViewById<BottomNavigationView>(R.id.bottomNavigationView)
         val tvWelcome = view.findViewById<TextView>(R.id.tv_welcome)
 
-        // Configurar navegación con `NavHostFragment`
+        // Configurar navegación con NavHostFragment
         val navHostFragment = childFragmentManager.findFragmentById(R.id.nav_host_fragment_alumno) as? NavHostFragment
         val navController = navHostFragment?.navController
 
@@ -41,10 +41,10 @@ class AlumnoFragment : Fragment() {
             bottomNavigationView.setupWithNavController(navController)
         }
 
-        // Observar datos del usuario
+        // Observar datos del usuario para mostrar el saludo
         usuarioViewModel.usuarioAutenticado.observe(viewLifecycleOwner) { usuario ->
             if (usuario != null) {
-                tvWelcome.text = "Hola, ${usuario.nombre} 👋"
+                tvWelcome.text = "Hola, ${usuario.nombre} "
             }
         }
 
@@ -60,6 +60,7 @@ class AlumnoFragment : Fragment() {
         }
     }
 
+    //Reiniciamos la aplicación saliendo al INtent
     private fun cerrarSesion() {
         usuarioViewModel.signOut()
         FirebaseAuth.getInstance().signOut()
